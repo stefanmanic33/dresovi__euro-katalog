@@ -6,17 +6,26 @@
   function repoInfo() {
     const host = window.location.hostname;
     const pathParts = window.location.pathname.split("/").filter(Boolean);
+
+    if (host === "127.0.0.1" || host === "localhost") {
+      return {
+        owner: "stefanmanic33",
+        repo: "dresovi__euro-katalog",
+        branch: "main",
+      };
+    }
+
     const owner = host.endsWith("github.io") ? host.split(".")[0] : "";
     let repo =
       owner && pathParts[0] ? pathParts[0] : owner ? owner + ".github.io" : "";
     if (!repo && pathParts[0]) repo = pathParts[0];
+
     return {
       owner,
       repo,
       branch: "main",
     };
   }
-
   function prettifyFileName(name) {
     const clean = name
       .replace(/\.[^.]+$/, "")

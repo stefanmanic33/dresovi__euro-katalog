@@ -1,44 +1,62 @@
 <!DOCTYPE html>
 <html lang="sr">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dresovi Euro | Katalog</title>
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <header class="hero">
-    <div class="container">
-      <div class="hero-top">
-        <div>
-          <p class="eyebrow">Online katalog</p>
-          <h1>Dresovi Euro</h1>
-          <p class="subtitle">
-            Izaberi kategoriju, pa tim ili reprezentaciju. Unutra će ti izaći svi dresovi koje ubaciš u odgovarajući folder na GitHub-u.
-          </p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dresovi Euro | Katalog</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="container">
+        <div class="hero-top">
+          <div>
+            <p class="eyebrow">Online katalog</p>
+            <h1>Dresovi Euro</h1>
+            <p class="subtitle">
+              Izaberi kategoriju, pa tim ili reprezentaciju. Unutra će ti izaći
+              svi dresovi koje ubaciš u odgovarajući folder na GitHub-u.
+            </p>
+          </div>
+          <div class="hero-actions">
+            <a
+              class="btn btn-light"
+              href="https://www.instagram.com/dresovi__euro/"
+              target="_blank"
+              rel="noopener"
+              >Instagram</a
+            >
+            <a
+              class="btn btn-dark"
+              href="https://wa.me/381600000000"
+              target="_blank"
+              rel="noopener"
+              >WhatsApp</a
+            >
+          </div>
         </div>
-        <div class="hero-actions">
-          <a class="btn btn-light" href="https://www.instagram.com/dresovi__euro/" target="_blank" rel="noopener">Instagram</a>
-          <a class="btn btn-dark" href="https://wa.me/381600000000" target="_blank" rel="noopener">WhatsApp</a>
+
+        <div class="search-wrap">
+          <input
+            id="searchInput"
+            class="search"
+            type="text"
+            placeholder="Pretraži tim ili reprezentaciju..."
+          />
         </div>
       </div>
+    </header>
 
-      <div class="search-wrap">
-        <input id="searchInput" class="search" type="text" placeholder="Pretraži tim ili reprezentaciju..." />
-      </div>
-    </div>
-  </header>
+    <main class="container">
+      <nav id="breadcrumb" class="breadcrumb"></nav>
+      <section id="app"></section>
+    </main>
 
-  <main class="container">
-    <nav id="breadcrumb" class="breadcrumb"></nav>
-    <section id="app"></section>
-  </main>
+    <footer class="footer">
+      <div class="container">© Dresovi Euro</div>
+    </footer>
 
-  <footer class="footer">
-    <div class="container">© Dresovi Euro</div>
-  </footer>
-
-  <script src="config.js"></script>
-  <script src="app.js"></script>
-</body>
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+  </body>
 </html>
