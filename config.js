@@ -1,7 +1,7 @@
 window.CATALOG = {
   "premier-league": {
-    "label": "Premier League",
-    "teams": [
+    label: "Premier League",
+    teams: [
       "Arsenal",
       "Aston Villa",
       "Bournemouth",
@@ -21,12 +21,12 @@ window.CATALOG = {
       "Southampton",
       "Tottenham",
       "West Ham United",
-      "Wolverhampton"
-    ]
+      "Wolverhampton",
+    ],
   },
-  "bundesliga": {
-    "label": "Bundesliga",
-    "teams": [
+  bundesliga: {
+    label: "Bundesliga",
+    teams: [
       "Bayern Munich",
       "Borussia Dortmund",
       "RB Leipzig",
@@ -44,12 +44,12 @@ window.CATALOG = {
       "Heidenheim",
       "Bochum",
       "St Pauli",
-      "Holstein Kiel"
-    ]
+      "Holstein Kiel",
+    ],
   },
   "serie-a": {
-    "label": "Serie A",
-    "teams": [
+    label: "Serie A",
+    teams: [
       "AC Milan",
       "Inter",
       "Juventus",
@@ -69,12 +69,12 @@ window.CATALOG = {
       "Como",
       "Monza",
       "Lecce",
-      "Verona"
-    ]
+      "Verona",
+    ],
   },
   "world-cup-2026": {
-    "label": "World Cup 2026",
-    "teams": [
+    label: "World Cup 2026",
+    teams: [
       "Argentina",
       "Brazil",
       "France",
@@ -94,12 +94,12 @@ window.CATALOG = {
       "Japan",
       "South Korea",
       "Morocco",
-      "Turkey"
-    ]
+      "Turkey",
+    ],
   },
   "ligue-1": {
-    "label": "Ligue 1",
-    "teams": [
+    label: "Ligue 1",
+    teams: [
       "Paris Saint Germain",
       "Marseille",
       "Lyon",
@@ -117,12 +117,12 @@ window.CATALOG = {
       "Reims",
       "Le Havre",
       "Angers",
-      "Auxerre"
-    ]
+      "Auxerre",
+    ],
   },
   "la-liga": {
-    "label": "La Liga",
-    "teams": [
+    label: "La Liga",
+    teams: [
       "Real Madrid",
       "Barcelona",
       "Atletico Madrid",
@@ -142,12 +142,12 @@ window.CATALOG = {
       "Rayo Vallecano",
       "Alaves",
       "Leganes",
-      "Valladolid"
-    ]
+      "Valladolid",
+    ],
   },
   "other-european-clubs": {
-    "label": "Ostali evropski timovi",
-    "teams": [
+    label: "Ostali evropski timovi",
+    teams: [
       "Ajax",
       "PSV",
       "Feyenoord",
@@ -173,12 +173,12 @@ window.CATALOG = {
       "Slavia Prague",
       "Ferencvaros",
       "FC Copenhagen",
-      "Malmo"
-    ]
+      "Malmo",
+    ],
   },
   "other-national-teams": {
-    "label": "Ostale reprezentacije",
-    "teams": [
+    label: "Ostale reprezentacije",
+    teams: [
       "Serbia",
       "Croatia",
       "Bosnia and Herzegovina",
@@ -208,12 +208,12 @@ window.CATALOG = {
       "Cameroon",
       "Algeria",
       "Tunisia",
-      "Australia"
-    ]
+      "Australia",
+    ],
   },
-  "nba": {
-    "label": "NBA",
-    "teams": [
+  nba: {
+    label: "NBA",
+    teams: [
       "Atlanta Hawks",
       "Boston Celtics",
       "Brooklyn Nets",
@@ -243,12 +243,12 @@ window.CATALOG = {
       "San Antonio Spurs",
       "Toronto Raptors",
       "Utah Jazz",
-      "Washington Wizards"
-    ]
+      "Washington Wizards",
+    ],
   },
-  "euroleague": {
-    "label": "EuroLeague",
-    "teams": [
+  euroleague: {
+    label: "EuroLeague",
+    teams: [
       "Real Madrid Basketball",
       "Barcelona Basketball",
       "Partizan Basketball",
@@ -266,12 +266,12 @@ window.CATALOG = {
       "Bayern Basketball",
       "Zalgiris",
       "ASVEL",
-      "Paris Basketball"
-    ]
+      "Paris Basketball",
+    ],
   },
   "other-sports": {
-    "label": "Ostali sportovi",
-    "teams": [
+    label: "Ostali sportovi",
+    teams: [
       "Formula 1 Ferrari",
       "Formula 1 Mercedes",
       "Formula 1 Red Bull Racing",
@@ -288,7 +288,7 @@ window.CATALOG = {
       "Tennis",
       "Rugby",
       "Baseball",
-      "Hockey"
-    ]
-  }
+      "Hockey",
+    ],
+  },
 };
