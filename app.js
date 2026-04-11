@@ -206,15 +206,15 @@
       return;
     }
 
-    const gallery = result.images
-      .map(
-        (image) => `
-      <div class="photo-card">
-        <img class="zoomable" src="${image.download_url}" alt="${teamName}" loading="lazy" />
-      </div>
-    `
-      )
-      .join("");
+    // const gallery = result.images
+    //   .map(
+    //     (image) => `
+    //   <div class="photo-card">
+    //     <img class="zoomable" src="${image.download_url}" alt="${teamName}" loading="lazy" />
+    //   </div>
+    // `
+    //   )
+    //   .join("");
 
     app.innerHTML = `
       <h2 class="page-title">${teamName}</h2>
