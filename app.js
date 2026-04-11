@@ -73,12 +73,19 @@
           .includes(filter.toLowerCase());
         if (filter && !teamMatch && !categoryMatch) return "";
         return `
-          <a class="card card-link" href="${qs(`category/${key}`)}">
+        <a class="card card-link" href="${qs(`category/${key}`)}">
+          <div class="category-head">
+            ${
+              category.logo
+                ? `<img class="category-logo" src="${category.logo}" alt="${category.label} logo" />`
+                : ""
+            }
             <h2>${category.label}</h2>
-            <p>${category.teams.length} podsekcija / timova</p>
-            <span class="pill">Otvori kategoriju</span>
-          </a>
-        `;
+          </div>
+          <p>${category.teams.length} timova</p>
+          <span class="pill">Izaberi tim</span>
+        </a>
+      `;
       })
       .join("");
 

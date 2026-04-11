@@ -1,6 +1,7 @@
 window.CATALOG = {
   "premier-league": {
     label: "Premier League",
+    logo: "images/logos/premier-league.png",
     teams: [
       "Arsenal",
       "Aston Villa",
@@ -101,6 +102,7 @@ window.CATALOG = {
   },
   "la-liga": {
     label: "La Liga",
+    logo: "images/logos/la-liga.png",
     teams: [
       "Real Madrid",
       "Barcelona",
