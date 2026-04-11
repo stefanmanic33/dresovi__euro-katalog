@@ -1,4 +1,7 @@
-import os, json, re, datetime
+import os
+import json
+import re
+import datetime
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 CATALOG_ROOT = os.path.join(ROOT, "catalog")
@@ -14,6 +17,17 @@ for category in sorted(os.listdir(CATALOG_ROOT)):
     if not os.path.isdir(cat_path):
         continue
 
+    # slike direktno u kategoriji
+    category_images = []
+    for name in sorted(os.listdir(cat_path)):
+        full_path = os.path.join(cat_path, name)
+        if os.path.isfile(full_path) and re.search(r"\.(jpg|jpeg|png|webp|gif)$", name, re.I):
+            category_images.append(f"catalog/{category}/{name}")
+
+    if category_images:
+        manifest["items"][category] = category_images
+
+    # slike po timovima
     for team in sorted(os.listdir(cat_path)):
         team_path = os.path.join(cat_path, team)
         if not os.path.isdir(team_path):
