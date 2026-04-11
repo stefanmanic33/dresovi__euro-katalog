@@ -27,6 +27,7 @@ window.CATALOG = {
   },
   bundesliga: {
     label: "Bundesliga",
+    logo: "images/logos/bundesliga.png",
     teams: [
       "Bayern Munich",
       "Borussia Dortmund",
@@ -50,6 +51,7 @@ window.CATALOG = {
   },
   "serie-a": {
     label: "Serie A",
+    logo: "images/logos/serie-a.png",
     teams: [
       "AC Milan",
       "Inter",
@@ -75,10 +77,12 @@ window.CATALOG = {
   },
   "world-cup-2026": {
     label: "World Cup 2026",
+    logo: "images/logos/world-cup-2026.png",
     teams: [],
   },
   "ligue-1": {
     label: "Ligue 1",
+    logo: "images/logos/ligue-1.png",
     teams: [
       "Paris Saint Germain",
       "Marseille",
@@ -158,7 +162,8 @@ window.CATALOG = {
     ],
   },
   "other-national-teams": {
-    label: "Ostale reprezentacije",
+    label: "Ostale repke",
+    logo: "images/logos/other-national-teams.png",
     teams: [
       "Serbia",
       "Croatia",
@@ -194,6 +199,7 @@ window.CATALOG = {
   },
   nba: {
     label: "NBA",
+    logo: "images/logos/nba.png",
     teams: [
       "Atlanta Hawks",
       "Boston Celtics",
@@ -228,7 +234,8 @@ window.CATALOG = {
     ],
   },
   euroleague: {
-    label: "EuroLeague",
+    label: "Euroleague",
+    logo: "images/logos/euroleague.png",
     teams: [
       "Real Madrid Basketball",
       "Barcelona Basketball",

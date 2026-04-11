@@ -111,6 +111,7 @@ h1 {
   padding: 16px;
   box-shadow: 0 10px 30px rgba(9, 24, 54, 0.08);
   border: 1px solid #edf1f7;
+  overflow: hidden;
 }
 .card h3,
 .card h2 {
@@ -224,6 +225,13 @@ h1 {
   align-items: center;
   gap: 12px;
   margin-bottom: 10px;
+}
+
+.category-head h2 {
+  margin: 0;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  line-height: 1.2;
 }
 
 .category-logo {

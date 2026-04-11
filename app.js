@@ -65,8 +65,10 @@
   function renderHome(filter = "") {
     const cards = Object.entries(window.CATALOG)
       .map(([key, category]) => {
+        const displayTeamCount =
+          key === "world-cup-2026" ? 48 : category.teams.length;
         const teamMatch = category.teams.some((team) =>
-          team.toLowerCase().includes(filter.toLowerCase())
+          team.toLowerCase().includes(filter.toLowerCase()),
         );
         const categoryMatch = category.label
           .toLowerCase()
@@ -82,7 +84,7 @@
             }
             <h2>${category.label}</h2>
           </div>
-          <p>${category.teams.length} timova</p>
+          <p>${displayTeamCount} timova</p>
           <span class="pill">Izaberi tim</span>
         </a>
       `;
@@ -128,7 +130,7 @@
         <div class="photo-card">
           <img class="zoomable" src="${src}" alt="${category.label}" loading="lazy" />
         </div>
-      `
+      `,
         )
         .join("");
 
@@ -144,14 +146,14 @@
 
     const cards = category.teams
       .filter(
-        (team) => !filter || team.toLowerCase().includes(filter.toLowerCase())
+        (team) => !filter || team.toLowerCase().includes(filter.toLowerCase()),
       )
       .map((team) => {
         const count = (manifest.items[teamManifestKey(categoryKey, team)] || [])
           .length;
         return `
           <a class="card card-link" href="${qs(
-            `team/${categoryKey}/${slugify(team)}`
+            `team/${categoryKey}/${slugify(team)}`,
           )}">
             <h3>${team}</h3>
             <p>${
@@ -236,7 +238,7 @@
       <div class="photo-card">
         <img class="zoomable" src="${src}" alt="${teamName}" loading="lazy" />
       </div>
-    `
+    `,
       )
       .join("");
 
