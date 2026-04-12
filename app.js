@@ -62,6 +62,10 @@
     return `${categoryKey}/${slugify(teamName)}`;
   }
 
+  function teamLogoPath(categoryKey, teamName) {
+    return `images/logos/teams/${categoryKey}/${slugify(teamName)}.png`;
+  }
+
   function renderHome(filter = "") {
     const cards = Object.entries(window.CATALOG)
       .map(([key, category]) => {
@@ -151,11 +155,15 @@
       .map((team) => {
         const count = (manifest.items[teamManifestKey(categoryKey, team)] || [])
           .length;
+        const logo = teamLogoPath(categoryKey, team);
         return `
           <a class="card card-link" href="${qs(
             `team/${categoryKey}/${slugify(team)}`,
           )}">
-            <h3>${team}</h3>
+            <div class="team-head">
+              <img class="team-logo" src="${logo}" alt="${team} logo" loading="lazy" onerror="this.style.display='none'" />
+              <h3>${team}</h3>
+            </div>
             <p>${
               count ? `Trenutno ${count} modela` : "Klikni da otvoriš tim."
             }</p>
