@@ -68,6 +68,12 @@ h1 {
   border: 1px solid rgba(255, 255, 255, 0.16);
 }
 
+.btn-viber {
+  background: #7360f2;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
 .search-wrap {
   margin-top: 18px;
 }
@@ -164,6 +170,48 @@ h1 {
   height: 280px;
   object-fit: cover;
   background: #e8edf6;
+}
+.order-actions {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  padding: 12px;
+}
+
+.product-code {
+  font-size: 12px;
+  font-weight: 700;
+  color: #18345d;
+  background: #eef4ff;
+  border: 1px solid #d4e4ff;
+  border-radius: 8px;
+  padding: 6px 8px;
+  text-align: center;
+}
+
+.order-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  border-radius: 10px;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.order-wa {
+  background: #25d366;
+  color: #042c11;
+}
+
+.order-viber {
+  background: #7360f2;
+  color: #ffffff;
+}
+
+.order-btn:hover {
+  filter: brightness(0.95);
 }
 .photo-card .caption {
   padding: 12px 14px 14px;

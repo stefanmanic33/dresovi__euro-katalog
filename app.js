@@ -2,6 +2,18 @@
   const app = document.getElementById("app");
   const breadcrumb = document.getElementById("breadcrumb");
   const searchInput = document.getElementById("searchInput");
+  const heroViberBtn = document.getElementById("heroViberBtn");
+
+  const contact = {
+    whatsappNumber:
+      window.CONTACT?.whatsappNumber ||
+      window.CONTACT_INFO?.whatsappNumber ||
+      "381600000000",
+    viberNumber:
+      window.CONTACT?.viberNumber ||
+      window.CONTACT_INFO?.viberNumber ||
+      "+381600000000",
+  };
 
   let manifest = { generatedAt: null, items: {} };
 
@@ -22,6 +34,132 @@
       .replace(/[^a-z0-9]+/g, "-")
       .replace(/-+/g, "-")
       .replace(/^-|-$/g, "");
+  }
+
+  function cleanPhone(phone, keepPlus = false) {
+    if (!phone) return "";
+    return keepPlus ? phone.replace(/[^\d+]/g, "") : phone.replace(/\D/g, "");
+  }
+
+  function shortCode(str) {
+    const cleaned = slugify(str || "")
+      .replace(/[^a-z0-9]/g, "")
+      .toUpperCase();
+    return (cleaned.slice(0, 3) || "GEN").padEnd(3, "X");
+  }
+
+  function buildProductCode(categoryKey, teamName, index) {
+    const categoryPart = shortCode(categoryKey);
+    const teamPart = teamName ? shortCode(teamName) : "CAT";
+    const numberPart = String(index + 1).padStart(3, "0");
+    return `${categoryPart}-${teamPart}-${numberPart}`;
+  }
+
+  function normalizeProductCode(value) {
+    return (value || "").toUpperCase().replace(/\s+/g, "").replace(/_/g, "-");
+  }
+
+  function isProductCode(value) {
+    return /^[A-Z0-9]{3}-[A-Z0-9]{3}-\d{3}$/.test(value);
+  }
+
+  function getSearchCode() {
+    const code = normalizeProductCode(searchInput.value.trim());
+    return isProductCode(code) ? code : null;
+  }
+
+  function findProductByCode(code) {
+    for (const [categoryKey, category] of Object.entries(window.CATALOG)) {
+      const isLeafCategory = !category.teams || category.teams.length === 0;
+
+      if (isLeafCategory) {
+        const images = manifest.items[categoryKey] || [];
+        for (let index = 0; index < images.length; index += 1) {
+          const currentCode = buildProductCode(categoryKey, null, index);
+          if (currentCode === code) {
+            return {
+              categoryKey,
+              teamSlug: null,
+            };
+          }
+        }
+        continue;
+      }
+
+      for (const teamName of category.teams) {
+        const key = teamManifestKey(categoryKey, teamName);
+        const images = manifest.items[key] || [];
+        for (let index = 0; index < images.length; index += 1) {
+          const currentCode = buildProductCode(categoryKey, teamName, index);
+          if (currentCode === code) {
+            return {
+              categoryKey,
+              teamSlug: slugify(teamName),
+            };
+          }
+        }
+      }
+    }
+
+    return null;
+  }
+
+  function buildOrderMessage({ categoryLabel, teamName, src, productCode }) {
+    const lines = [
+      "Zdravo, zelim da porucim ovaj dres.",
+      `Sifra: ${productCode}`,
+      `Kategorija: ${categoryLabel}`,
+    ];
+
+    if (teamName) {
+      lines.push(`Tim: ${teamName}`);
+    }
+
+    return lines.join("\n");
+  }
+
+  function getWhatsAppLink(message) {
+    const number = cleanPhone(contact.whatsappNumber);
+    return `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
+  }
+
+  function getViberLink(message) {
+    const number = cleanPhone(contact.viberNumber, true);
+    const encoded = encodeURIComponent(message);
+
+    if (number) {
+      return `viber://chat?number=${encodeURIComponent(number)}&text=${encoded}`;
+    }
+
+    return `viber://forward?text=${encoded}`;
+  }
+
+  function orderActions(categoryLabel, teamName, src, productCode) {
+    const message = buildOrderMessage({
+      categoryLabel,
+      teamName,
+      src,
+      productCode,
+    });
+
+    return `
+      <div class="order-actions">
+        <div class="product-code">Sifra: ${productCode}</div>
+        <a class="order-btn order-wa" href="${getWhatsAppLink(message)}" target="_blank" rel="noopener">Poruci na WhatsApp</a>
+        <a class="order-btn order-viber" href="${getViberLink(message)}" target="_blank" rel="noopener">Poruci na Viber</a>
+      </div>
+    `;
+  }
+
+  function bindHeroLinks() {
+    if (!heroViberBtn) return;
+
+    const configuredLink =
+      window.CONTACT?.viberGroupLink ||
+      window.CONTACT_INFO?.viberGroupLink ||
+      "https://invite.viber.com/";
+
+    heroViberBtn.href = configuredLink;
   }
 
   function renderBreadcrumb(parts) {
@@ -111,6 +249,8 @@
       return;
     }
 
+    const searchCode = getSearchCode();
+
     if (!category.teams || category.teams.length === 0) {
       const images = manifest.items[categoryKey] || [];
 
@@ -129,19 +269,26 @@
       }
 
       const gallery = images
-        .map(
-          (src) => `
+        .map((src, index) => ({ src, index }))
+        .filter(({ index }) => {
+          if (!searchCode) return true;
+          return buildProductCode(categoryKey, null, index) === searchCode;
+        })
+        .map(({ src, index }) => {
+          const productCode = buildProductCode(categoryKey, null, index);
+          return `
         <div class="photo-card">
           <img class="zoomable" src="${src}" alt="${category.label}" loading="lazy" />
+          ${orderActions(category.label, null, src, productCode)}
         </div>
-      `,
-        )
+      `;
+        })
         .join("");
 
       app.innerHTML = `
         <h2 class="page-title">${category.label}</h2>
-        <p class="page-text">Ukupno modela: ${images.length}</p>
-        <div class="gallery">${gallery}</div>
+        <p class="page-text">Ukupno modela: ${searchCode ? gallery.length : images.length}</p>
+        <div class="gallery">${gallery || '<div class="empty">Nema rezultata za ovu sifru u ovoj kategoriji.</div>'}</div>
       `;
 
       bindLightbox();
@@ -223,6 +370,7 @@
 
     const key = teamManifestKey(categoryKey, teamName);
     const images = manifest.items[key] || [];
+    const searchCode = getSearchCode();
 
     if (!images.length) {
       const folderPath = getTeamFolder(categoryKey, teamName);
@@ -241,19 +389,26 @@
     }
 
     const gallery = images
-      .map(
-        (src) => `
+      .map((src, index) => ({ src, index }))
+      .filter(({ index }) => {
+        if (!searchCode) return true;
+        return buildProductCode(categoryKey, teamName, index) === searchCode;
+      })
+      .map(({ src, index }) => {
+        const productCode = buildProductCode(categoryKey, teamName, index);
+        return `
       <div class="photo-card">
         <img class="zoomable" src="${src}" alt="${teamName}" loading="lazy" />
+        ${orderActions(category.label, teamName, src, productCode)}
       </div>
-    `,
-      )
+    `;
+      })
       .join("");
 
     app.innerHTML = `
       <h2 class="page-title">${teamName}</h2>
-      <p class="page-text">Ukupno modela: ${images.length}</p>
-      <div class="gallery">${gallery}</div>
+      <p class="page-text">Ukupno modela: ${searchCode ? gallery.length : images.length}</p>
+      <div class="gallery">${gallery || '<div class="empty">Nema rezultata za ovu sifru u ovom timu.</div>'}</div>
     `;
 
     bindLightbox();
@@ -294,11 +449,27 @@
   }
 
   searchInput.addEventListener("input", () => {
-    const parts = routeParts();
-    if (!parts.length || parts[0] === "category") render();
+    const searchCode = getSearchCode();
+
+    if (searchCode) {
+      const target = findProductByCode(searchCode);
+      if (target) {
+        const targetHash = target.teamSlug
+          ? qs(`team/${target.categoryKey}/${target.teamSlug}`)
+          : qs(`category/${target.categoryKey}`);
+
+        if (window.location.hash !== targetHash) {
+          window.location.hash = targetHash;
+          return;
+        }
+      }
+    }
+
+    render();
   });
 
   window.addEventListener("hashchange", render);
 
+  bindHeroLinks();
   loadManifest().then(render);
 })();

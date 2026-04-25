@@ -280,3 +280,10 @@ window.CATALOG = {
     ],
   },
 };
+
+window.CONTACT = {
+  whatsappNumber: "381654553249",
+  viberNumber: "+381654553249",
+  viberGroupLink:
+    "https://invite.viber.com/?g2=AQAXbnOmV4qPNVRSiixrDjg5HSojFfS7Rp0l1DxzG0hA%252Bu0uTyV5KmsLhU%252BR9KaV",
+};
