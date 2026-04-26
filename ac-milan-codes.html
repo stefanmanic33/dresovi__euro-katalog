@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="sr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AC Milan - Sifre Proizvoda</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #f5f7fb;
+        color: #122037;
+      }
+      .wrap {
+        width: min(1320px, calc(100% - 24px));
+        margin: 18px auto 28px;
+      }
+      .top {
+        background: #ffffff;
+        border: 1px solid #e5ebf5;
+        border-radius: 14px;
+        padding: 14px;
+        box-shadow: 0 8px 24px rgba(8, 23, 49, 0.06);
+        position: sticky;
+        top: 10px;
+        z-index: 10;
+      }
+      h1 {
+        margin: 0 0 10px;
+        font-size: 22px;
+      }
+      .row {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      input[type="text"] {
+        flex: 1 1 280px;
+        min-height: 40px;
+        border: 1px solid #cfdaed;
+        border-radius: 10px;
+        padding: 0 12px;
+        font-size: 14px;
+      }
+      button {
+        border: 0;
+        border-radius: 10px;
+        min-height: 40px;
+        padding: 0 14px;
+        font-weight: 700;
+        cursor: pointer;
+      }
+      .btn-copy {
+        background: #0f6ad8;
+        color: #fff;
+      }
+      .btn-clear {
+        background: #e9eef8;
+        color: #132540;
+      }
+      .meta {
+        margin-top: 10px;
+        font-size: 13px;
+        color: #4e5f7c;
+      }
+      .grid {
+        margin-top: 14px;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+        gap: 10px;
+      }
+      .card {
+        background: #fff;
+        border: 1px solid #e6edf8;
+        border-radius: 12px;
+        overflow: hidden;
+      }
+      .img {
+        width: 100%;
+        height: 170px;
+        object-fit: cover;
+        display: block;
+        background: #dde6f5;
+      }
+      .body {
+        padding: 8px;
+      }
+      .code {
+        display: inline-block;
+        padding: 4px 7px;
+        border-radius: 7px;
+        background: #eff5ff;
+        border: 1px solid #d3e2ff;
+        font-weight: 700;
+        font-size: 12px;
+        margin-bottom: 7px;
+      }
+      .pick {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 12px;
+      }
+      .hint {
+        margin-top: 8px;
+        font-size: 12px;
+        color: #6d7a91;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="top">
+        <h1>AC Milan - Sifre Proizvoda</h1>
+        <div class="row">
+          <input
+            id="filter"
+            type="text"
+            placeholder="Pretraga po sifri, npr SER-ACM-098"
+          />
+          <button class="btn-copy" id="copyBtn">Copy oznacenih sifri</button>
+          <button class="btn-clear" id="clearBtn">Ocisti izbor</button>
+        </div>
+        <div class="meta" id="meta"></div>
+        <div class="hint">
+          Oznaci dresove za 25/26 i 26/27, klikni Copy i posalji mi listu sifri.
+        </div>
+      </div>
+
+      <div class="grid" id="grid"></div>
+    </div>
+
+    <script>
+      function slugify(str) {
+        return (str || "")
+          .toLowerCase()
+          .replace(/&/g, " and ")
+          .replace(/[^a-z0-9]+/g, "-")
+          .replace(/-+/g, "-")
+          .replace(/^-|-$/g, "");
+      }
+
+      function shortCode(str) {
+        const cleaned = slugify(str)
+          .replace(/[^a-z0-9]/g, "")
+          .toUpperCase();
+        return (cleaned.slice(0, 3) || "GEN").padEnd(3, "X");
+      }
+
+      function buildProductCode(categoryKey, teamName, index) {
+        const categoryPart = shortCode(categoryKey);
+        const teamPart = teamName ? shortCode(teamName) : "CAT";
+        const numberPart = String(index + 1).padStart(3, "0");
+        return `${categoryPart}-${teamPart}-${numberPart}`;
+      }
+
+      const CATEGORY = "serie-a";
+      const TEAM = "ac-milan";
+      const MANIFEST_KEY = `${CATEGORY}/${TEAM}`;
+      const TEAM_LABEL = "AC Milan";
+
+      const grid = document.getElementById("grid");
+      const filterInput = document.getElementById("filter");
+      const copyBtn = document.getElementById("copyBtn");
+      const clearBtn = document.getElementById("clearBtn");
+      const meta = document.getElementById("meta");
+
+      let allItems = [];
+
+      function selectedCodes() {
+        return Array.from(document.querySelectorAll(".pick input:checked"))
+          .map((el) => el.value)
+          .sort();
+      }
+
+      function refreshMeta() {
+        const selected = selectedCodes();
+        meta.textContent = `Tim: ${TEAM_LABEL} | Ukupno: ${allItems.length} | Oznaceno: ${selected.length}`;
+      }
+
+      function render() {
+        const q = filterInput.value.trim().toUpperCase();
+        const filtered = q
+          ? allItems.filter((item) => item.code.includes(q))
+          : allItems;
+
+        grid.innerHTML = filtered
+          .map(
+            (item) => `
+              <div class="card">
+                <img class="img" src="${item.src}" alt="${item.code}" loading="lazy" />
+                <div class="body">
+                  <div class="code">${item.code}</div>
+                  <label class="pick">
+                    <input type="checkbox" value="${item.code}" />
+                    Oznaci za vrh
+                  </label>
+                </div>
+              </div>
+            `,
+          )
+          .join("");
+
+        document.querySelectorAll(".pick input").forEach((el) => {
+          el.addEventListener("change", refreshMeta);
+        });
+
+        refreshMeta();
+      }
+
+      async function init() {
+        const res = await fetch(`manifest.json?v=${Date.now()}`, {
+          cache: "no-store",
+        });
+        const data = await res.json();
+        const images = data.items[MANIFEST_KEY] || [];
+
+        allItems = images.map((src, index) => ({
+          src,
+          code: buildProductCode(CATEGORY, TEAM, index),
+        }));
+
+        render();
+      }
+
+      filterInput.addEventListener("input", render);
+
+      copyBtn.addEventListener("click", async () => {
+        const selected = selectedCodes();
+        if (!selected.length) {
+          alert("Nema oznacenih sifri.");
+          return;
+        }
+
+        const text = selected.join(", ");
+        try {
+          await navigator.clipboard.writeText(text);
+          alert("Sifre kopirane.");
+        } catch (e) {
+          prompt("Kopiraj sifre:", text);
+        }
+      });
+
+      clearBtn.addEventListener("click", () => {
+        document.querySelectorAll(".pick input:checked").forEach((el) => {
+          el.checked = false;
+        });
+        refreshMeta();
+      });
+
+      init().catch(() => {
+        grid.innerHTML =
+          '<div class="card" style="padding:12px">Nije ucitan manifest.</div>';
+      });
+    </script>
+  </body>
+</html>

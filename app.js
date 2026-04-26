@@ -68,6 +68,36 @@
     return isProductCode(code) ? code : null;
   }
 
+  function getPinnedCodes(categoryKey, teamName) {
+    const pinned = window.PINNED_PRODUCT_CODES || {};
+    const key = teamName
+      ? `${categoryKey}/${slugify(teamName)}`
+      : `${categoryKey}`;
+    const codes = pinned[key] || [];
+    return codes.map((code) => normalizeProductCode(code));
+  }
+
+  function prioritizePinnedItems(items, categoryKey, teamName) {
+    const pinnedCodes = getPinnedCodes(categoryKey, teamName);
+    if (!pinnedCodes.length) return items;
+
+    const pinnedRank = new Map(pinnedCodes.map((code, index) => [code, index]));
+
+    return [...items].sort((a, b) => {
+      const codeA = buildProductCode(categoryKey, teamName, a.index);
+      const codeB = buildProductCode(categoryKey, teamName, b.index);
+      const rankA = pinnedRank.has(codeA)
+        ? pinnedRank.get(codeA)
+        : Number.MAX_SAFE_INTEGER;
+      const rankB = pinnedRank.has(codeB)
+        ? pinnedRank.get(codeB)
+        : Number.MAX_SAFE_INTEGER;
+
+      if (rankA !== rankB) return rankA - rankB;
+      return a.index - b.index;
+    });
+  }
+
   function findProductByCode(code) {
     for (const [categoryKey, category] of Object.entries(window.CATALOG)) {
       const isLeafCategory = !category.teams || category.teams.length === 0;
@@ -205,18 +235,31 @@
   }
 
   function renderHome(filter = "") {
-    const cards = Object.entries(window.CATALOG)
-      .map(([key, category]) => {
-        const displayTeamCount =
-          key === "world-cup-2026" ? 48 : category.teams.length;
-        const teamMatch = category.teams.some((team) =>
-          team.toLowerCase().includes(filter.toLowerCase()),
-        );
-        const categoryMatch = category.label
-          .toLowerCase()
-          .includes(filter.toLowerCase());
-        if (filter && !teamMatch && !categoryMatch) return "";
-        return `
+    const sections = window.CATALOG_SECTIONS || {};
+    const grouped = {};
+
+    Object.entries(window.CATALOG).forEach(([key, category]) => {
+      const sectionKey = category.section || "dresovi";
+      if (sectionKey === "hidden") return;
+      if (!grouped[sectionKey]) grouped[sectionKey] = [];
+
+      const isLeaf = !category.teams || category.teams.length === 0;
+      const displayTeamCount =
+        key === "world-cup-2026" ? 48 : category.teams.length;
+
+      const teamMatch = category.teams.some((team) =>
+        team.toLowerCase().includes(filter.toLowerCase()),
+      );
+      const categoryMatch = category.label
+        .toLowerCase()
+        .includes(filter.toLowerCase());
+
+      if (filter && !teamMatch && !categoryMatch) return;
+
+      const pillText = isLeaf ? "Otvori" : "Izaberi tim";
+      const countText = isLeaf ? "" : `<p>${displayTeamCount} timova</p>`;
+
+      grouped[sectionKey].push(`
         <a class="card card-link" href="${qs(`category/${key}`)}">
           <div class="category-head">
             ${
@@ -226,19 +269,31 @@
             }
             <h2>${category.label}</h2>
           </div>
-          <p>${displayTeamCount} timova</p>
-          <span class="pill">Izaberi tim</span>
+          ${countText}
+          <span class="pill">${pillText}</span>
         </a>
-      `;
+      `);
+    });
+
+    const hasAny = Object.values(grouped).some((cards) => cards.length > 0);
+
+    const sectionsHtml = Object.entries(grouped)
+      .map(([sectionKey, cards]) => {
+        if (!cards.length) return "";
+        const sectionLabel =
+          sections[sectionKey]?.label ||
+          sectionKey.charAt(0).toUpperCase() + sectionKey.slice(1);
+        return `
+          <h2 class="section-title">${sectionLabel}</h2>
+          <div class="grid">${cards.join("")}</div>
+        `;
       })
       .join("");
 
     app.innerHTML = `
       <h2 class="page-title">Kategorije</h2>
       <p class="page-text">Ovde su sve glavne sekcije. Klikni kategoriju pa tim.</p>
-      <div class="grid">${
-        cards || '<div class="empty">Nema rezultata za ovu pretragu.</div>'
-      }</div>
+      ${hasAny ? sectionsHtml : '<div class="empty">Nema rezultata za ovu pretragu.</div>'}
     `;
   }
 
@@ -268,12 +323,18 @@
         return;
       }
 
-      const gallery = images
-        .map((src, index) => ({ src, index }))
-        .filter(({ index }) => {
-          if (!searchCode) return true;
-          return buildProductCode(categoryKey, null, index) === searchCode;
-        })
+      const visibleItems = prioritizePinnedItems(
+        images
+          .map((src, index) => ({ src, index }))
+          .filter(({ index }) => {
+            if (!searchCode) return true;
+            return buildProductCode(categoryKey, null, index) === searchCode;
+          }),
+        categoryKey,
+        null,
+      );
+
+      const gallery = visibleItems
         .map(({ src, index }) => {
           const productCode = buildProductCode(categoryKey, null, index);
           return `
@@ -287,7 +348,7 @@
 
       app.innerHTML = `
         <h2 class="page-title">${category.label}</h2>
-        <p class="page-text">Ukupno modela: ${searchCode ? gallery.length : images.length}</p>
+        <p class="page-text">Ukupno modela: ${searchCode ? visibleItems.length : images.length}</p>
         <div class="gallery">${gallery || '<div class="empty">Nema rezultata za ovu sifru u ovoj kategoriji.</div>'}</div>
       `;
 
@@ -388,12 +449,18 @@
       return;
     }
 
-    const gallery = images
-      .map((src, index) => ({ src, index }))
-      .filter(({ index }) => {
-        if (!searchCode) return true;
-        return buildProductCode(categoryKey, teamName, index) === searchCode;
-      })
+    const visibleItems = prioritizePinnedItems(
+      images
+        .map((src, index) => ({ src, index }))
+        .filter(({ index }) => {
+          if (!searchCode) return true;
+          return buildProductCode(categoryKey, teamName, index) === searchCode;
+        }),
+      categoryKey,
+      teamName,
+    );
+
+    const gallery = visibleItems
       .map(({ src, index }) => {
         const productCode = buildProductCode(categoryKey, teamName, index);
         return `
@@ -407,7 +474,7 @@
 
     app.innerHTML = `
       <h2 class="page-title">${teamName}</h2>
-      <p class="page-text">Ukupno modela: ${searchCode ? gallery.length : images.length}</p>
+      <p class="page-text">Ukupno modela: ${searchCode ? visibleItems.length : images.length}</p>
       <div class="gallery">${gallery || '<div class="empty">Nema rezultata za ovu sifru u ovom timu.</div>'}</div>
     `;
 

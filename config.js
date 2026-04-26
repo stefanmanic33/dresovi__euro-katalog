@@ -1,5 +1,6 @@
 window.CATALOG = {
   "premier-league": {
+    section: "dresovi",
     label: "Premier League",
     logo: "images/logos/premier-league.png",
     teams: [
@@ -26,6 +27,7 @@ window.CATALOG = {
     ],
   },
   bundesliga: {
+    section: "dresovi",
     label: "Bundesliga",
     logo: "images/logos/bundesliga.png",
     teams: [
@@ -50,6 +52,7 @@ window.CATALOG = {
     ],
   },
   "serie-a": {
+    section: "dresovi",
     label: "Serie A",
     logo: "images/logos/serie-a.png",
     teams: [
@@ -76,11 +79,13 @@ window.CATALOG = {
     ],
   },
   "world-cup-2026": {
+    section: "dresovi",
     label: "World Cup 2026",
     logo: "images/logos/world-cup-2026.png",
     teams: [],
   },
   "ligue-1": {
+    section: "dresovi",
     label: "Ligue 1",
     logo: "images/logos/ligue-1.png",
     teams: [
@@ -105,6 +110,7 @@ window.CATALOG = {
     ],
   },
   "la-liga": {
+    section: "dresovi",
     label: "La Liga",
     logo: "images/logos/la-liga.png",
     teams: [
@@ -131,6 +137,7 @@ window.CATALOG = {
     ],
   },
   "other-european-clubs": {
+    section: "dresovi",
     label: "Ostali evropski timovi",
     teams: [
       "Ajax",
@@ -162,42 +169,13 @@ window.CATALOG = {
     ],
   },
   "other-national-teams": {
+    section: "dresovi",
     label: "Ostale repke",
     logo: "images/logos/other-national-teams.png",
-    teams: [
-      "Serbia",
-      "Croatia",
-      "Bosnia and Herzegovina",
-      "Slovenia",
-      "Montenegro",
-      "North Macedonia",
-      "Albania",
-      "Switzerland",
-      "Austria",
-      "Poland",
-      "Czech Republic",
-      "Denmark",
-      "Sweden",
-      "Norway",
-      "Scotland",
-      "Wales",
-      "Ireland",
-      "Ukraine",
-      "Greece",
-      "Romania",
-      "Hungary",
-      "Colombia",
-      "Chile",
-      "Peru",
-      "Nigeria",
-      "Ghana",
-      "Cameroon",
-      "Algeria",
-      "Tunisia",
-      "Australia",
-    ],
+    teams: [],
   },
   nba: {
+    section: "dresovi",
     label: "NBA",
     logo: "images/logos/nba.png",
     teams: [
@@ -234,30 +212,13 @@ window.CATALOG = {
     ],
   },
   euroleague: {
+    section: "dresovi",
     label: "Euroleague",
     logo: "images/logos/euroleague.png",
-    teams: [
-      "Real Madrid Basketball",
-      "Barcelona Basketball",
-      "Partizan Basketball",
-      "Red Star Basketball",
-      "Panathinaikos Basketball",
-      "Olympiacos Basketball",
-      "Fenerbahce Basketball",
-      "Anadolu Efes",
-      "Maccabi Tel Aviv",
-      "Baskonia",
-      "Valencia Basket",
-      "Monaco Basketball",
-      "Virtus Bologna",
-      "Olimpia Milano",
-      "Bayern Basketball",
-      "Zalgiris",
-      "ASVEL",
-      "Paris Basketball",
-    ],
+    teams: [],
   },
   "other-sports": {
+    section: "hidden",
     label: "Ostali sportovi",
     teams: [
       "Formula 1 Ferrari",
@@ -279,6 +240,31 @@ window.CATALOG = {
       "Hockey",
     ],
   },
+  "trening-kompleti": {
+    section: "trening",
+    label: "Trening kompleti",
+    teams: [],
+  },
+  "trening-komplet-sorc-majica": {
+    section: "trening",
+    label: "Trening komplet šorc i majica",
+    teams: [],
+  },
+  "trenerke-za-setnju": {
+    section: "trening",
+    label: "Trenerke za šetnju",
+    teams: [],
+  },
+  "trenerke-sa-kapuljacom": {
+    section: "trening",
+    label: "Trenerke sa kapuljačom",
+    teams: [],
+  },
+};
+
+window.CATALOG_SECTIONS = {
+  dresovi: { label: "Dresovi" },
+  trening: { label: "Trening asortiman" },
 };
 
 window.CONTACT = {
@@ -286,4 +272,10 @@ window.CONTACT = {
   viberNumber: "+381654553249",
   viberGroupLink:
     "https://invite.viber.com/?g2=AQAXbnOmV4qPNVRSiixrDjg5HSojFfS7Rp0l1DxzG0hA%252Bu0uTyV5KmsLhU%252BR9KaV",
+};
+
+window.PINNED_PRODUCT_CODES = {
+  "serie-a/ac-milan": ["SER-ACM-098", "SER-ACM-184"],
+  // Primer kljuca za tim: "serie-a/inter": ["SER-INT-004", "SER-INT-007"],
+  // Primer kljuca za kategoriju bez timova: "world-cup-2026": ["WOR-CAT-001"],
 };
