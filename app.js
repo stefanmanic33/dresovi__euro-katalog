@@ -307,7 +307,11 @@
     const searchCode = getSearchCode();
 
     if (!category.teams || category.teams.length === 0) {
-      const images = manifest.items[categoryKey] || [];
+      const directImages = manifest.items[categoryKey] || [];
+      const nestedImages = Object.entries(manifest.items)
+        .filter(([key]) => key.startsWith(`${categoryKey}/`))
+        .flatMap(([, items]) => items);
+      const images = directImages.length ? directImages : nestedImages;
 
       if (!images.length) {
         app.innerHTML = `
