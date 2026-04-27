@@ -143,7 +143,7 @@ window.CATALOG = {
   },
   "other-national-teams": {
     section: "dresovi",
-    label: "Ostale repke",
+    label: "Repke - retro dresovi",
     logo: "images/logos/other-national-teams.png",
     teams: [],
   },
