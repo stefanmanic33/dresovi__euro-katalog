@@ -233,6 +233,11 @@ window.CATALOG = {
     label: "Duksevi",
     teams: [],
   },
+  "dresovi-na-stanju": {
+    section: "trening",
+    label: "Dresovi na stanju",
+    teams: [],
+  },
   "trenerke-za-setnju": {
     section: "trening",
     label: "Trenerke za šetnju",
