@@ -320,3 +320,134 @@ h1 {
   overflow-wrap: anywhere;
   line-height: 1.2;
 }
+
+.world-cup-group-section {
+  margin: 0 0 26px;
+}
+
+.world-cup-group-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #0f2f57;
+  margin: 0 0 12px;
+}
+
+.world-cup-group-grid {
+  margin-top: 0;
+}
+
+.world-cup-card {
+  min-height: 150px;
+}
+
+.world-cup-team-head,
+.team-page-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.team-flag {
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  display: inline-flex;
+  position: relative;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg, #ffffff 0%, #eef4ff 100%);
+  border: 1px solid rgba(170, 191, 224, 0.65);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    0 10px 18px rgba(15, 47, 87, 0.12);
+  font-size: 18px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.team-flag-large {
+  width: 56px;
+  height: 56px;
+  font-size: 24px;
+}
+
+.team-flag-england {
+  color: transparent;
+}
+
+.team-flag-england::before {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  border-radius: 999px;
+  background:
+    linear-gradient(
+      to right,
+      transparent 0,
+      transparent 38%,
+      #c81d25 38%,
+      #c81d25 62%,
+      transparent 62%,
+      transparent 100%
+    ),
+    linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 38%,
+      #c81d25 38%,
+      #c81d25 62%,
+      transparent 62%,
+      transparent 100%
+    ),
+    #ffffff;
+  box-shadow: inset 0 0 0 1px rgba(200, 29, 37, 0.08);
+}
+
+.team-flag-england.team-flag-large::before {
+  inset: 6px;
+}
+
+.team-flag-scotland {
+  color: transparent;
+}
+
+.team-flag-scotland::before {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  border-radius: 999px;
+  background:
+    linear-gradient(
+      45deg,
+      transparent 0,
+      transparent 41%,
+      #ffffff 41%,
+      #ffffff 52%,
+      transparent 52%,
+      transparent 100%
+    ),
+    linear-gradient(
+      -45deg,
+      transparent 0,
+      transparent 41%,
+      #ffffff 41%,
+      #ffffff 52%,
+      transparent 52%,
+      transparent 100%
+    ),
+    #005bbb;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.14);
+}
+
+.team-flag-scotland.team-flag-large::before {
+  inset: 6px;
+}
+
+.team-page-head {
+  margin: 8px 0 6px;
+}
+
+.team-page-head .page-title {
+  margin: 0;
+}

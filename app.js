@@ -234,6 +234,98 @@
     return `images/logos/teams/${categoryKey}/${slugify(teamName)}.png`;
   }
 
+  function getSpecialCategoryLayout(categoryKey) {
+    return window.SPECIAL_CATEGORY_LAYOUTS?.[categoryKey] || null;
+  }
+
+  function getTeamMeta(categoryKey, teamName) {
+    const layout = getSpecialCategoryLayout(categoryKey);
+    if (!layout?.groups) return null;
+
+    for (const group of layout.groups) {
+      const teamMeta = group.teams.find((team) => team.name === teamName);
+      if (teamMeta) {
+        return {
+          ...teamMeta,
+          groupLabel: group.label,
+        };
+      }
+    }
+
+    return null;
+  }
+
+  function renderFlagMarkup(teamMeta, extraClass = "") {
+    const hasCustomFlag =
+      teamMeta?.flagType === "england" || teamMeta?.flagType === "scotland";
+    const classes = [
+      "team-flag",
+      extraClass,
+      teamMeta?.flagType ? `team-flag-${teamMeta.flagType}` : "",
+    ]
+      .filter(Boolean)
+      .join(" ");
+
+    if (hasCustomFlag) {
+      return `<span class="${classes}" role="img" aria-label="${teamMeta.flagLabel || teamMeta.name}"></span>`;
+    }
+
+    return `<span class="${classes}" aria-hidden="true">${teamMeta?.flag || "🏳️"}</span>`;
+  }
+
+  function renderGroupedCategory(categoryKey, category, filter = "") {
+    const layout = getSpecialCategoryLayout(categoryKey);
+    const query = filter.toLowerCase();
+    const groups = (layout?.groups || [])
+      .map((group) => ({
+        ...group,
+        teams: group.teams.filter(
+          (team) => !query || team.name.toLowerCase().includes(query),
+        ),
+      }))
+      .filter((group) => group.teams.length > 0);
+
+    const groupsMarkup = groups
+      .map((group) => {
+        const cards = group.teams
+          .map((team) => {
+            const count = (
+              manifest.items[teamManifestKey(categoryKey, team.name)] || []
+            ).length;
+
+            return `
+              <a class="card card-link world-cup-card" href="${qs(
+                `team/${categoryKey}/${slugify(team.name)}`,
+              )}">
+                <div class="world-cup-team-head">
+                  ${renderFlagMarkup(team)}
+                  <div>
+                    <h3>${team.name}</h3>
+                    <p>${count ? `Trenutno ${count} modela` : "Folder je spreman za slike dresova."}</p>
+                  </div>
+                </div>
+                <span class="pill">Otvori tim</span>
+              </a>
+            `;
+          })
+          .join("");
+
+        return `
+          <section class="world-cup-group-section">
+            <div class="world-cup-group-title">${group.label}</div>
+            <div class="grid world-cup-group-grid">${cards}</div>
+          </section>
+        `;
+      })
+      .join("");
+
+    app.innerHTML = `
+      <h2 class="page-title">${category.label}</h2>
+      <p class="page-text">Kada udješ u grupu vidiš 4 reprezentacije, a svaki tim ima spreman folder za slike dresova.</p>
+      ${groupsMarkup || '<div class="empty">Nema reprezentacija za ovu pretragu.</div>'}
+    `;
+  }
+
   function renderHome(filter = "") {
     const sections = window.CATALOG_SECTIONS || {};
     const grouped = {};
@@ -277,9 +369,17 @@
 
     const hasAny = Object.values(grouped).some((cards) => cards.length > 0);
 
-    const sectionsHtml = Object.entries(grouped)
-      .map(([sectionKey, cards]) => {
-        if (!cards.length) return "";
+    const sectionOrder = Object.keys(sections);
+    const remainingKeys = Object.keys(grouped).filter(
+      (k) => !sectionOrder.includes(k),
+    );
+    const orderedKeys = [...sectionOrder, ...remainingKeys];
+
+    const sectionsHtml = orderedKeys
+      .filter((sectionKey) => grouped[sectionKey]?.length)
+      .map((sectionKey) => {
+        const cards = grouped[sectionKey];
+        if (!cards || !cards.length) return "";
         const sectionLabel =
           sections[sectionKey]?.label ||
           sectionKey.charAt(0).toUpperCase() + sectionKey.slice(1);
@@ -360,6 +460,11 @@
       return;
     }
 
+    if (getSpecialCategoryLayout(categoryKey)?.groups) {
+      renderGroupedCategory(categoryKey, category, filter);
+      return;
+    }
+
     const cards = category.teams
       .filter(
         (team) => !filter || team.toLowerCase().includes(filter.toLowerCase()),
@@ -436,11 +541,23 @@
     const key = teamManifestKey(categoryKey, teamName);
     const images = manifest.items[key] || [];
     const searchCode = getSearchCode();
+    const teamMeta = getTeamMeta(categoryKey, teamName);
+    const teamHeading = teamMeta
+      ? `
+        <div class="team-page-head">
+          ${renderFlagMarkup(teamMeta, "team-flag-large")}
+          <div>
+            <h2 class="page-title">${teamName}</h2>
+            <p class="page-text">${teamMeta.groupLabel}</p>
+          </div>
+        </div>
+      `
+      : `<h2 class="page-title">${teamName}</h2>`;
 
     if (!images.length) {
       const folderPath = getTeamFolder(categoryKey, teamName);
       app.innerHTML = `
-        <h2 class="page-title">${teamName}</h2>
+        ${teamHeading}
         <div class="empty">
           Još nema slika za ovaj tim.<br><br>
           Ubaci slike u folder:<br>
@@ -477,7 +594,7 @@
       .join("");
 
     app.innerHTML = `
-      <h2 class="page-title">${teamName}</h2>
+      ${teamHeading}
       <p class="page-text">Ukupno modela: ${searchCode ? visibleItems.length : images.length}</p>
       <div class="gallery">${gallery || '<div class="empty">Nema rezultata za ovu sifru u ovom timu.</div>'}</div>
     `;

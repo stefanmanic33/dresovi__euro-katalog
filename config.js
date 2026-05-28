@@ -1,3 +1,120 @@
+const worldCup2026Groups = [
+  {
+    label: "Grupa A",
+    teams: [
+      { name: "Mexico", flag: "🇲🇽" },
+      { name: "South Africa", flag: "🇿🇦" },
+      { name: "South Korea", flag: "🇰🇷" },
+      { name: "Czech Republic", flag: "🇨🇿" },
+    ],
+  },
+  {
+    label: "Grupa B",
+    teams: [
+      { name: "Canada", flag: "🇨🇦" },
+      { name: "Bosnia and Herzegovina", flag: "🇧🇦" },
+      { name: "Qatar", flag: "🇶🇦" },
+      { name: "Switzerland", flag: "🇨🇭" },
+    ],
+  },
+  {
+    label: "Grupa C",
+    teams: [
+      { name: "Brazil", flag: "🇧🇷" },
+      { name: "Morocco", flag: "🇲🇦" },
+      { name: "Haiti", flag: "🇭🇹" },
+      { name: "Scotland", flagType: "scotland", flagLabel: "Scotland flag" },
+    ],
+  },
+  {
+    label: "Grupa D",
+    teams: [
+      { name: "United States", flag: "🇺🇸" },
+      { name: "Paraguay", flag: "🇵🇾" },
+      { name: "Australia", flag: "🇦🇺" },
+      { name: "Turkey", flag: "🇹🇷" },
+    ],
+  },
+  {
+    label: "Grupa E",
+    teams: [
+      { name: "Germany", flag: "🇩🇪" },
+      { name: "Curacao", flag: "🇨🇼" },
+      { name: "Ivory Coast", flag: "🇨🇮" },
+      { name: "Ecuador", flag: "🇪🇨" },
+    ],
+  },
+  {
+    label: "Grupa F",
+    teams: [
+      { name: "Netherlands", flag: "🇳🇱" },
+      { name: "Japan", flag: "🇯🇵" },
+      { name: "Sweden", flag: "🇸🇪" },
+      { name: "Tunisia", flag: "🇹🇳" },
+    ],
+  },
+  {
+    label: "Grupa G",
+    teams: [
+      { name: "Belgium", flag: "🇧🇪" },
+      { name: "Egypt", flag: "🇪🇬" },
+      { name: "Iran", flag: "🇮🇷" },
+      { name: "New Zealand", flag: "🇳🇿" },
+    ],
+  },
+  {
+    label: "Grupa H",
+    teams: [
+      { name: "Spain", flag: "🇪🇸" },
+      { name: "Cape Verde", flag: "🇨🇻" },
+      { name: "Saudi Arabia", flag: "🇸🇦" },
+      { name: "Uruguay", flag: "🇺🇾" },
+    ],
+  },
+  {
+    label: "Grupa I",
+    teams: [
+      { name: "France", flag: "🇫🇷" },
+      { name: "Senegal", flag: "🇸🇳" },
+      { name: "Iraq", flag: "🇮🇶" },
+      { name: "Norway", flag: "🇳🇴" },
+    ],
+  },
+  {
+    label: "Grupa J",
+    teams: [
+      { name: "Argentina", flag: "🇦🇷" },
+      { name: "Algeria", flag: "🇩🇿" },
+      { name: "Austria", flag: "🇦🇹" },
+      { name: "Jordan", flag: "🇯🇴" },
+    ],
+  },
+  {
+    label: "Grupa K",
+    teams: [
+      { name: "Portugal", flag: "🇵🇹" },
+      { name: "DR Congo", flag: "🇨🇩" },
+      { name: "Uzbekistan", flag: "🇺🇿" },
+      { name: "Colombia", flag: "🇨🇴" },
+    ],
+  },
+  {
+    label: "Grupa L",
+    teams: [
+      { name: "England", flagType: "england", flagLabel: "England flag" },
+      { name: "Croatia", flag: "🇭🇷" },
+      { name: "Ghana", flag: "🇬🇭" },
+      { name: "Panama", flag: "🇵🇦" },
+    ],
+  },
+];
+
+window.SPECIAL_CATEGORY_LAYOUTS = {
+  "world-cup-2026": {
+    groups: worldCup2026Groups,
+  },
+};
+
 window.CATALOG = {
   "premier-league": {
     section: "dresovi",
@@ -78,11 +195,20 @@ window.CATALOG = {
       "Hellas Verona",
     ],
   },
-  "world-cup-2026": {
-    section: "dresovi",
-    label: "World Cup 2026",
+  "world-cup-2026-staro": {
+    section: "svetsko-prvenstvo",
+    label: "Svetsko prvenstvo 2026 - svi dresovi",
     logo: "images/logos/world-cup-2026.png",
     teams: [],
+  },
+  "world-cup-2026": {
+    section: "svetsko-prvenstvo",
+    label: "Svetsko prvenstvo 2026 - po grupama",
+    logo: "images/logos/world-cup-2026.png",
+    teams: worldCup2026Groups.reduce((allTeams, group) => {
+      group.teams.forEach((team) => allTeams.push(team.name));
+      return allTeams;
+    }, []),
   },
   "ligue-1": {
     section: "dresovi",
@@ -251,6 +377,7 @@ window.CATALOG = {
 };
 
 window.CATALOG_SECTIONS = {
+  "svetsko-prvenstvo": { label: "Svetsko prvenstvo" },
   dresovi: { label: "Dresovi" },
   trening: { label: "Trening asortiman" },
 };
