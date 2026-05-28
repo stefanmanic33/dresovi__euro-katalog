@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-28T12:04:43.802004Z",
+  "generatedAt": "2026-05-28T12:30:03.632617Z",
   "items": {
     "bundesliga/1-fc-koln": [
       "catalog/bundesliga/1-fc-koln/imgi_10_small.png",
@@ -7814,7 +7814,10 @@
       "catalog/world-cup-2026/belgium/01BD9F06-BC4B-4992-9C70-646EF36FFD58.jpeg",
       "catalog/world-cup-2026/belgium/5085043C-A852-46AE-879C-1050655BA2A0.jpeg"
     ],
-    "world-cup-2026/bosnia-and-herzegovina": [],
+    "world-cup-2026/bosnia-and-herzegovina": [
+      "catalog/world-cup-2026/bosnia-and-herzegovina/image copy.png",
+      "catalog/world-cup-2026/bosnia-and-herzegovina/image.png"
+    ],
     "world-cup-2026/brazil": [
       "catalog/world-cup-2026/brazil/2F51DCB0-85C5-46BD-8097-6B7CF075978A.jpeg",
       "catalog/world-cup-2026/brazil/E3F5B2BE-73E9-4EE7-B3C3-271901537E95.jpeg"
@@ -7877,7 +7880,9 @@
       "catalog/world-cup-2026/haiti/EE1DB23D-2FC7-4CB9-92CF-633AA38199A4.jpeg"
     ],
     "world-cup-2026/ic-path-2-winner": [],
-    "world-cup-2026/iran": [],
+    "world-cup-2026/iran": [
+      "catalog/world-cup-2026/iran/image.png"
+    ],
     "world-cup-2026/iraq": [
       "catalog/world-cup-2026/iraq/0015EC6B-E149-4AAD-BEAC-CBBBB2A53A9F.jpeg",
       "catalog/world-cup-2026/iraq/95B40B8C-78CD-4B48-A423-705212D0B0D2.jpeg"
