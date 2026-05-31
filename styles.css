@@ -134,6 +134,34 @@ h1 {
   color: inherit;
   text-decoration: none;
 }
+
+.featured-card {
+  position: relative;
+  border: 1px solid #ffd486;
+  background: linear-gradient(170deg, #fffaf0 0%, #fff 60%);
+  box-shadow:
+    0 14px 32px rgba(185, 124, 20, 0.18),
+    inset 0 0 0 1px rgba(255, 237, 197, 0.7);
+}
+
+.featured-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 24px;
+  padding: 0 9px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: #6d4600;
+  background: linear-gradient(180deg, #ffeab7 0%, #ffd47e 100%);
+  border: 1px solid #f3be58;
+}
 .pill {
   display: inline-block;
   font-size: 12px;
@@ -235,6 +263,54 @@ h1 {
   padding: 16px;
   line-height: 1.55;
   margin: 12px 0 30px;
+}
+
+.mystery-box-copy {
+  background: linear-gradient(180deg, #fff7e7 0%, #ffffff 100%);
+  border: 1px solid #f0d38f;
+  border-radius: 16px;
+  padding: 14px 16px;
+  margin: 0 0 14px;
+}
+
+.mystery-box-copy h3 {
+  margin: 0 0 8px;
+  color: #a46b00;
+}
+
+.mystery-box-copy p {
+  margin: 0 0 7px;
+  color: #4d4f56;
+  line-height: 1.45;
+}
+
+.mystery-box-copy .mystery-note {
+  margin-bottom: 0;
+  font-weight: 700;
+  color: #7f5300;
+}
+
+.mystery-order-wrap {
+  margin: 16px 0 8px;
+}
+
+.mystery-order-wrap .order-actions {
+  max-width: none;
+  width: 100%;
+  padding: 0;
+}
+
+.mystery-order-wrap .order-btn {
+  width: 100%;
+}
+
+.mystery-order-wrap .product-code {
+  background: #fff3d6;
+  border-color: #f0d38f;
+}
+
+.mystery-preview-card {
+  border: 1px solid #f0d38f;
 }
 .footer {
   padding: 24px 0 40px;

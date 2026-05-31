@@ -195,6 +195,13 @@ window.CATALOG = {
       "Hellas Verona",
     ],
   },
+  "mystery-box-sp2026": {
+    section: "svetsko-prvenstvo",
+    label: "Mystery Box - Svetsko prvenstvo 2026",
+    logo: "images/logos/world-cup-2026.png",
+    featured: true,
+    teams: [],
+  },
   "world-cup-2026-staro": {
     section: "svetsko-prvenstvo",
     label: "Svetsko prvenstvo 2026 - svi dresovi",

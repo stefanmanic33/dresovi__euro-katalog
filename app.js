@@ -350,9 +350,16 @@
 
       const pillText = isLeaf ? "Otvori" : "Izaberi tim";
       const countText = isLeaf ? "" : `<p>${displayTeamCount} timova</p>`;
+      const cardClasses = category.featured
+        ? "card card-link featured-card"
+        : "card card-link";
+      const badgeMarkup = category.featured
+        ? '<span class="featured-badge">Novo</span>'
+        : "";
 
       grouped[sectionKey].push(`
-        <a class="card card-link" href="${qs(`category/${key}`)}">
+        <a class="${cardClasses}" href="${qs(`category/${key}`)}">
+          ${badgeMarkup}
           <div class="category-head">
             ${
               category.logo
@@ -366,6 +373,25 @@
         </a>
       `);
     });
+
+    const worldCupOrder = [
+      "mystery-box-sp2026",
+      "world-cup-2026",
+      "world-cup-2026-staro",
+    ];
+    if (grouped["svetsko-prvenstvo"]?.length) {
+      grouped["svetsko-prvenstvo"].sort((a, b) => {
+        const idxA = worldCupOrder.findIndex((slug) =>
+          a.includes(`href="#category/${slug}"`),
+        );
+        const idxB = worldCupOrder.findIndex((slug) =>
+          b.includes(`href="#category/${slug}"`),
+        );
+        const rankA = idxA === -1 ? Number.MAX_SAFE_INTEGER : idxA;
+        const rankB = idxB === -1 ? Number.MAX_SAFE_INTEGER : idxB;
+        return rankA - rankB;
+      });
+    }
 
     const hasAny = Object.values(grouped).some((cards) => cards.length > 0);
 
@@ -441,6 +467,13 @@
       const gallery = visibleItems
         .map(({ src, index }) => {
           const productCode = buildProductCode(categoryKey, null, index);
+          if (categoryKey === "mystery-box-sp2026") {
+            return `
+        <div class="photo-card mystery-preview-card">
+          <img class="zoomable" src="${src}" alt="${category.label}" loading="lazy" />
+        </div>
+      `;
+          }
           return `
         <div class="photo-card">
           <img class="zoomable" src="${src}" alt="${category.label}" loading="lazy" />
@@ -450,10 +483,30 @@
         })
         .join("");
 
+      const isMysteryBoxCategory = categoryKey === "mystery-box-sp2026";
+      const mysteryIntro = isMysteryBoxCategory
+        ? `
+          <div class="mystery-box-copy">
+            <h3>Mystery Box</h3>
+            <p>U paketu dobijaš dres iznenađenja reprezentacije sa Svetskog prvenstva i privezak iznenađenja.</p>
+            <p>Ovde se prikazuju 3 slike koje ubaciš: kako paket izgleda, primer dresa i detalj dodatka.</p>
+            <p class="mystery-note">Ponuda je aktivna samo dok traje Svetsko prvenstvo.</p>
+          </div>
+        `
+        : "";
+      const mysteryOrder = isMysteryBoxCategory
+        ? `<div class="mystery-order-wrap">${orderActions(category.label, null, images[0] || "", "MISTERY BOX")}</div>`
+        : "";
+      const countMarkup = isMysteryBoxCategory
+        ? ""
+        : `<p class="page-text">Ukupno modela: ${searchCode ? visibleItems.length : images.length}</p>`;
+
       app.innerHTML = `
         <h2 class="page-title">${category.label}</h2>
-        <p class="page-text">Ukupno modela: ${searchCode ? visibleItems.length : images.length}</p>
+        ${mysteryIntro}
+        ${countMarkup}
         <div class="gallery">${gallery || '<div class="empty">Nema rezultata za ovu sifru u ovoj kategoriji.</div>'}</div>
+        ${mysteryOrder}
       `;
 
       bindLightbox();
