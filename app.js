@@ -378,6 +378,7 @@
       "mystery-box-sp2026",
       "world-cup-2026",
       "world-cup-2026-staro",
+      "world-cup-2026-deciji-kompleti",
     ];
     if (grouped["svetsko-prvenstvo"]?.length) {
       grouped["svetsko-prvenstvo"].sort((a, b) => {

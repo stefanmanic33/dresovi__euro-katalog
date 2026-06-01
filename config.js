@@ -208,6 +208,12 @@ window.CATALOG = {
     logo: "images/logos/world-cup-2026.png",
     teams: [],
   },
+  "world-cup-2026-deciji-kompleti": {
+    section: "svetsko-prvenstvo",
+    label: "Svetsko prvenstvo 2026 - Dečiji kompleti",
+    logo: "images/logos/world-cup-2026.png",
+    teams: [],
+  },
   "world-cup-2026": {
     section: "svetsko-prvenstvo",
     label: "Svetsko prvenstvo 2026 - po grupama",
