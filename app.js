@@ -176,7 +176,7 @@
       <div class="order-actions">
         <div class="product-code">Sifra: ${productCode}</div>
         <a class="order-btn order-wa" href="${getWhatsAppLink(message)}" target="_blank" rel="noopener">Poruci na WhatsApp</a>
-        <a class="order-btn order-viber" href="${getViberLink(message)}" target="_blank" rel="noopener">Poruci na Viber</a>
+        <a class="order-btn order-viber" href="${getViberLink(message)}">Poruci na Viber</a>
       </div>
     `;
   }
