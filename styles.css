@@ -190,6 +190,97 @@ h1 {
   margin: 0 0 18px;
   color: #566274;
 }
+
+.mystery-spotlight {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #fff7e4 0%, #ffe0a8 48%, #ffd07c 100%);
+  border: 1px solid #f2be62;
+  border-radius: 18px;
+  padding: 18px;
+  margin: 8px 0 20px;
+  box-shadow:
+    0 16px 28px rgba(137, 83, 0, 0.18),
+    inset 0 0 0 1px rgba(255, 240, 207, 0.75);
+}
+
+.mystery-spotlight::after {
+  content: "";
+  position: absolute;
+  right: -42px;
+  top: -32px;
+  width: 160px;
+  height: 160px;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.52) 0%, rgba(255, 255, 255, 0) 72%);
+  pointer-events: none;
+}
+
+.mystery-spotlight-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 26px;
+  padding: 0 10px;
+  border-radius: 999px;
+  border: 1px solid #e4a741;
+  color: #6f4100;
+  background: #ffe9bc;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.mystery-spotlight h2 {
+  margin: 10px 0 8px;
+  color: #6d3b00;
+  font-size: clamp(26px, 4.6vw, 36px);
+  line-height: 1.1;
+}
+
+.mystery-spotlight p {
+  margin: 0;
+  color: #553100;
+  max-width: 760px;
+  line-height: 1.5;
+}
+
+.mystery-spotlight-grid {
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.mystery-spotlight-card {
+  background: rgba(255, 255, 255, 0.58);
+  border: 1px solid rgba(200, 129, 9, 0.24);
+  border-radius: 14px;
+  padding: 14px;
+}
+
+.mystery-spotlight-card h3 {
+  margin: 0 0 8px;
+  font-size: 20px;
+  color: #5b3300;
+}
+
+.mystery-spotlight-card p {
+  max-width: none;
+}
+
+.mystery-spotlight-actions {
+  margin-top: 14px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.mystery-spotlight-wa {
+  color: #0f2f57;
+}
+
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
@@ -323,6 +414,20 @@ h1 {
   }
   .page-title {
     font-size: 26px;
+  }
+
+  .mystery-spotlight {
+    padding: 16px;
+    margin-bottom: 18px;
+  }
+
+  .mystery-spotlight-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mystery-spotlight-actions .btn {
+    width: 100%;
+    text-align: center;
   }
 }
 

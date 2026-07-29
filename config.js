@@ -390,9 +390,9 @@ window.CATALOG = {
 };
 
 window.CATALOG_SECTIONS = {
-  "svetsko-prvenstvo": { label: "Svetsko prvenstvo" },
   dresovi: { label: "Dresovi" },
-  trening: { label: "Trening asortiman" },
+  "svetsko-prvenstvo": { label: "Svetsko prvenstvo" },
+  trening: { label: "Ostali asortiman" },
 };
 
 window.CONTACT = {

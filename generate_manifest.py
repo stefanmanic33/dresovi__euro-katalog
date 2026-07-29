@@ -12,6 +12,20 @@ manifest = {
     "items": {}
 }
 
+
+def sorted_image_names_by_mtime(folder_path):
+    image_names = []
+    for name in os.listdir(folder_path):
+        full_path = os.path.join(folder_path, name)
+        if not os.path.isfile(full_path):
+            continue
+        if not re.search(r"\.(jpg|jpeg|png|webp|gif)$", name, re.I):
+            continue
+        image_names.append((name, os.path.getmtime(full_path)))
+
+    image_names.sort(key=lambda item: (-item[1], item[0].lower()))
+    return [name for name, _ in image_names]
+
 for category in sorted(os.listdir(CATALOG_ROOT)):
     cat_path = os.path.join(CATALOG_ROOT, category)
     if not os.path.isdir(cat_path):
@@ -19,10 +33,8 @@ for category in sorted(os.listdir(CATALOG_ROOT)):
 
     # slike direktno u kategoriji
     category_images = []
-    for name in sorted(os.listdir(cat_path)):
-        full_path = os.path.join(cat_path, name)
-        if os.path.isfile(full_path) and re.search(r"\.(jpg|jpeg|png|webp|gif)$", name, re.I):
-            category_images.append(f"catalog/{category}/{name}")
+    for name in sorted_image_names_by_mtime(cat_path):
+        category_images.append(f"catalog/{category}/{name}")
 
     if category_images:
         manifest["items"][category] = category_images
@@ -34,9 +46,8 @@ for category in sorted(os.listdir(CATALOG_ROOT)):
             continue
 
         images = []
-        for name in sorted(os.listdir(team_path)):
-            if re.search(r"\.(jpg|jpeg|png|webp|gif)$", name, re.I):
-                images.append(f"catalog/{category}/{team}/{name}")
+        for name in sorted_image_names_by_mtime(team_path):
+            images.append(f"catalog/{category}/{team}/{name}")
 
         manifest["items"][f"{category}/{team}"] = images
 

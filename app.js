@@ -417,7 +417,51 @@
       })
       .join("");
 
+    const mysteryRetroMessage = [
+      "Zdravo, hocu Mistery Box Retro!",
+      "Zelim dres iznenadjenja + privezak iznenadjenja.",
+    ].join("\n");
+
+    const mysteryModernMessage = [
+      "Zdravo, hocu Mistery Box Modern!",
+      "Zelim dres iznenadjenja + privezak iznenadjenja.",
+    ].join("\n");
+
+    const mysterySpotlight = `
+      <section class="mystery-spotlight" aria-label="Mystery Box promo">
+        <span class="mystery-spotlight-badge">Najtrazenije</span>
+        <h2>Mystery Box</h2>
+        <div class="mystery-spotlight-grid">
+          <article class="mystery-spotlight-card">
+            <h3>Mistery Box Retro</h3>
+            <p><strong>Dres iznenadjenja + privezak iznenadjenja</strong></p>
+            <div class="mystery-spotlight-actions">
+              <a
+                class="btn btn-dark"
+                href="${getViberLink(mysteryRetroMessage)}"
+                target="_blank"
+                rel="noopener"
+              >Poruci Mistery Box Retro</a>
+            </div>
+          </article>
+          <article class="mystery-spotlight-card">
+            <h3>Mistery Box Modern</h3>
+            <p><strong>Dres iznenadjenja + privezak iznenadjenja</strong></p>
+            <div class="mystery-spotlight-actions">
+              <a
+                class="btn btn-dark"
+                href="${getViberLink(mysteryModernMessage)}"
+                target="_blank"
+                rel="noopener"
+              >Poruci Mistery Box Modern</a>
+            </div>
+          </article>
+        </div>
+      </section>
+    `;
+
     app.innerHTML = `
+      ${mysterySpotlight}
       <h2 class="page-title">Kategorije</h2>
       <p class="page-text">Ovde su sve glavne sekcije. Klikni kategoriju pa tim.</p>
       ${hasAny ? sectionsHtml : '<div class="empty">Nema rezultata za ovu pretragu.</div>'}
