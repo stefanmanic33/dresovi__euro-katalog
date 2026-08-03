@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-23T15:50:34.996094Z",
+  "generatedAt": "2026-08-03T13:59:32.991211Z",
   "items": {
     "bundesliga/1-fc-koln": [
       "catalog/bundesliga/1-fc-koln/imgi_19_small.jpg",
@@ -5272,6 +5272,7 @@
       "catalog/premier-league/arsenal/yupoo-arsenal-001.png"
     ],
     "premier-league/aston-villa": [
+      "catalog/premier-league/aston-villa/image.png",
       "catalog/premier-league/aston-villa/imgi_26_small.jpg",
       "catalog/premier-league/aston-villa/imgi_25_small.jpg",
       "catalog/premier-league/aston-villa/imgi_24_small.jpg",
@@ -5299,9 +5300,12 @@
       "catalog/premier-league/bournemouth/image.png"
     ],
     "premier-league/brentford": [
+      "catalog/premier-league/brentford/image copy.png",
       "catalog/premier-league/brentford/image.png"
     ],
     "premier-league/brighton": [
+      "catalog/premier-league/brighton/image copy.png",
+      "catalog/premier-league/brighton/image.png",
       "catalog/premier-league/brighton/imgi_17_small.jpg",
       "catalog/premier-league/brighton/imgi_16_small.jpg",
       "catalog/premier-league/brighton/imgi_15_small.jpg",
