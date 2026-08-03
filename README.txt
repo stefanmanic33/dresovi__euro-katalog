@@ -8,27 +8,27 @@ Radi preko fajla manifest.json, zato radi:
 
 KAKO RADI:
 1. Ubaciš slike u odgovarajući folder tima.
-2. Pokreneš:
-   python3 generate_manifest.py
-3. To osveži manifest.json
-4. Commit + push
-5. Sajt prikazuje nove slike
+2. Pokreneš jednu komandu:
+   ./publish.sh "dodate slike"
+3. Skripta sama:
+   - osveži manifest.json
+   - uradi git add za catalog i manifest
+   - uradi commit i push
+4. Sajt prikazuje nove slike
 
 NAJBITNIJE:
 Kad dodaš nove slike, obavezno pokreni:
-python3 generate_manifest.py
+./publish.sh "dodate slike"
 
-PA ONDA:
-git add .
-git commit -m "dodate slike"
-git push
+Ako hoćeš samo osvežavanje manifesta bez commita:
+./refresh_manifest.sh
 
 PRIMER:
 Ako ubaciš slike u:
 catalog/la-liga/real-madrid
 
 onda pokreneš:
-python3 generate_manifest.py
+./publish.sh "real madrid nove slike"
 
 i sajt će prikazati te slike i lokalno i live.
 
