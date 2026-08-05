@@ -16,6 +16,18 @@ KAKO RADI:
    - uradi commit i push
 4. Sajt prikazuje nove slike
 
+BRZI NAČIN ZA DODAVANJE JEDNOG DRESA:
+Ako želiš da sam dodadeš jednu sliku u određeni tim, koristi:
+
+./add_jersey.sh /putanja/do/slike.jpg premier-league chelsea
+
+Primer:
+./add_jersey.sh /Users/korisnik/Downloads/novi-dres.png premier-league chelsea
+
+Ovo će:
+- kopirati sliku u catalog/premier-league/chelsea/
+- automatski osvežiti manifest.json
+
 NAJBITNIJE:
 Kad dodaš nove slike, obavezno pokreni:
 ./publish.sh "dodate slike"
