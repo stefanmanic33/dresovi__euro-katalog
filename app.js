@@ -231,7 +231,16 @@
   }
 
   function teamLogoPath(categoryKey, teamName) {
-    return `images/logos/teams/${categoryKey}/${slugify(teamName)}.png`;
+    const normalized = slugify(teamName);
+    const aliases = {
+      "brighton-hove-albion": "brighton-and-hove-albion",
+      "tottenham-hotspur": "tottenham-hotspur",
+      "coventry-city": "coventry-city",
+      "hull-city": "hull-city",
+      "ipswich-town": "ipswich-town",
+    };
+    const resolved = aliases[normalized] || normalized;
+    return `images/logos/teams/${categoryKey}/${resolved}.png`;
   }
 
   function getSpecialCategoryLayout(categoryKey) {
