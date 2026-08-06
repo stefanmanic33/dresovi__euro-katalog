@@ -301,6 +301,18 @@ h1 {
   object-fit: cover;
   background: #e8edf6;
 }
+
+.gallery--few {
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  max-width: 900px;
+}
+
+.photo-card--large img {
+  height: auto;
+  max-height: 80vh;
+  object-fit: contain;
+  background: #f4f6fb;
+}
 .order-actions {
   display: grid;
   grid-template-columns: 1fr;

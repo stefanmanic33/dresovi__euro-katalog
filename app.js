@@ -48,9 +48,59 @@
     return (cleaned.slice(0, 3) || "GEN").padEnd(3, "X");
   }
 
+  // Explicit overrides to resolve collisions where two teams share the same
+  // 3-letter shortCode. Keys are "categoryKey/teamSlug".
+  const TEAM_CODE_OVERRIDES = {
+    "premier-league/manchester-city":            "MCY",
+    "premier-league/manchester-united":          "MUN",
+    "bundesliga/bayer-leverkusen":               "BAL",
+    "bundesliga/borussia-dortmund":              "BVB",
+    "bundesliga/borussia-monchengladbach":        "BMG",
+    "euroleague/paris-basketball":               "PAB",
+    "euroleague/partizan-basketball":            "PAZ",
+    "la-liga/real-betis":                        "RBT",
+    "la-liga/real-madrid":                       "RMA",
+    "la-liga/real-sociedad":                     "RSO",
+    "la-liga/deportivo-alaves":                  "ALA",
+    "la-liga/deportivo-la-coruna":               "DEP",
+    "ligue-1/paris-fc":                          "PFC",
+    "ligue-1/paris-saint-germain":               "PSG",
+    "nba/new-orleans-pelicans":                  "NOP",
+    "nba/new-york-knicks":                       "NYK",
+    "other-national-teams/australia":            "AUS",
+    "other-national-teams/austria":              "AUT",
+    "other-national-teams/north-macedonia":      "MKD",
+    "other-national-teams/norway":               "NOR",
+    "other-sports/formula-1-aston-martin":       "F1A",
+    "other-sports/formula-1-ferrari":            "F1F",
+    "other-sports/formula-1-mclaren":            "F1M",
+    "other-sports/formula-1-mercedes":           "F1E",
+    "other-sports/formula-1-red-bull-racing":    "F1R",
+    "other-sports/mlb-los-angeles-dodgers":      "LAD",
+    "other-sports/mlb-new-york-yankees":         "NYY",
+    "other-sports/nfl-dallas-cowboys":           "DAL",
+    "other-sports/nfl-kansas-city-chiefs":       "KCC",
+    "other-sports/nfl-new-york-giants":          "NYG",
+    "other-sports/nfl-san-francisco-49ers":      "SF4",
+    "other-sports/nhl-new-york-rangers":         "NYR",
+    "other-sports/nhl-toronto-maple-leafs":      "TML",
+    "world-cup-2026/australia":                  "AUS",
+    "world-cup-2026/austria":                    "AUT",
+    "world-cup-2026/iran":                       "IRN",
+    "world-cup-2026/iraq":                       "IRQ",
+    "world-cup-2026/south-africa":               "RSA",
+    "world-cup-2026/south-korea":                "KOR",
+  };
+
+  function getTeamCode(categoryKey, teamName) {
+    const teamSlug = slugify(teamName || "");
+    const overrideKey = `${categoryKey}/${teamSlug}`;
+    return TEAM_CODE_OVERRIDES[overrideKey] || shortCode(teamName);
+  }
+
   function buildProductCode(categoryKey, teamName, index) {
     const categoryPart = shortCode(categoryKey);
-    const teamPart = teamName ? shortCode(teamName) : "CAT";
+    const teamPart = teamName ? getTeamCode(categoryKey, teamName) : "CAT";
     const numberPart = String(index + 1).padStart(3, "0");
     return `${categoryPart}-${teamPart}-${numberPart}`;
   }
@@ -688,11 +738,12 @@
       teamName,
     );
 
+    const fewItems = visibleItems.length <= 2;
     const gallery = visibleItems
       .map(({ src, index }) => {
         const productCode = buildProductCode(categoryKey, teamName, index);
         return `
-      <div class="photo-card">
+      <div class="photo-card${fewItems ? ' photo-card--large' : ''}">
         <img class="zoomable" src="${src}" alt="${teamName}" loading="lazy" />
         ${orderActions(category.label, teamName, src, productCode)}
       </div>
@@ -703,7 +754,7 @@
     app.innerHTML = `
       ${teamHeading}
       <p class="page-text">Ukupno modela: ${searchCode ? visibleItems.length : images.length}</p>
-      <div class="gallery">${gallery || '<div class="empty">Nema rezultata za ovu sifru u ovom timu.</div>'}</div>
+      <div class="gallery${fewItems ? ' gallery--few' : ''}">${gallery || '<div class="empty">Nema rezultata za ovu sifru u ovom timu.</div>'}</div>
     `;
 
     bindLightbox();
