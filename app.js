@@ -290,7 +290,11 @@
       "ipswich-town": "ipswich-town",
     };
     const resolved = aliases[normalized] || normalized;
-    return `images/logos/teams/${categoryKey}/${resolved}.png`;
+    const cacheVersion =
+      categoryKey === "la-liga" && resolved === "atletico-madrid"
+        ? "?v=20260906"
+        : "";
+    return `images/logos/teams/${categoryKey}/${resolved}.png${cacheVersion}`;
   }
 
   function getSpecialCategoryLayout(categoryKey) {
