@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-06T12:51:21.439532Z",
+  "generatedAt": "2026-09-06T12:07:21.322999Z",
   "items": {
     "bundesliga/augsburg": [
       "catalog/bundesliga/augsburg/BUN-AUG-001.png"
@@ -5238,6 +5238,8 @@
       "catalog/premier-league/arsenal/PRE-ARS-123.png"
     ],
     "premier-league/aston-villa": [
+      "catalog/premier-league/aston-villa/PRE-AST-024.png",
+      "catalog/premier-league/aston-villa/PRE-AST-023.png",
       "catalog/premier-league/aston-villa/PRE-AST-001.png",
       "catalog/premier-league/aston-villa/PRE-AST-002.jpg",
       "catalog/premier-league/aston-villa/PRE-AST-003.jpg",
@@ -5262,14 +5264,18 @@
       "catalog/premier-league/aston-villa/PRE-AST-022.jpg"
     ],
     "premier-league/bournemouth": [
+      "catalog/premier-league/bournemouth/PRE-BOU-004.png",
+      "catalog/premier-league/bournemouth/PRE-BOU-003.png",
       "catalog/premier-league/bournemouth/PRE-BOU-001.png",
       "catalog/premier-league/bournemouth/PRE-BOU-002.png"
     ],
     "premier-league/brentford": [
+      "catalog/premier-league/brentford/PRE-BRE-003.png",
       "catalog/premier-league/brentford/PRE-BRE-001.png",
       "catalog/premier-league/brentford/PRE-BRE-002.png"
     ],
     "premier-league/brighton-and-hove-albion": [
+      "catalog/premier-league/brighton-and-hove-albion/PRE-BRI-015.png",
       "catalog/premier-league/brighton-and-hove-albion/PRE-BRI-001.png",
       "catalog/premier-league/brighton-and-hove-albion/PRE-BRI-002.png",
       "catalog/premier-league/brighton-and-hove-albion/PRE-BRI-003.jpg",
@@ -5367,9 +5373,14 @@
       "catalog/premier-league/chelsea/PRE-CHE-079.jpg"
     ],
     "premier-league/coventry-city": [
+      "catalog/premier-league/coventry-city/PRE-COV-003.png",
+      "catalog/premier-league/coventry-city/PRE-COV-002.png",
       "catalog/premier-league/coventry-city/PRE-COV-001.png"
     ],
     "premier-league/crystal-palace": [
+      "catalog/premier-league/crystal-palace/PRE-CRY-012.png",
+      "catalog/premier-league/crystal-palace/PRE-CRY-011.png",
+      "catalog/premier-league/crystal-palace/PRE-CRY-010.png",
       "catalog/premier-league/crystal-palace/PRE-CRY-001.jpg",
       "catalog/premier-league/crystal-palace/PRE-CRY-002.jpg",
       "catalog/premier-league/crystal-palace/PRE-CRY-003.jpg",
@@ -5394,6 +5405,8 @@
       "catalog/premier-league/everton/PRE-EVE-011.webp"
     ],
     "premier-league/fulham": [
+      "catalog/premier-league/fulham/PRE-FUL-015.png",
+      "catalog/premier-league/fulham/PRE-FUL-014.png",
       "catalog/premier-league/fulham/PRE-FUL-001.png",
       "catalog/premier-league/fulham/PRE-FUL-002.jpg",
       "catalog/premier-league/fulham/PRE-FUL-003.jpg",
@@ -5409,6 +5422,7 @@
       "catalog/premier-league/fulham/PRE-FUL-013.png"
     ],
     "premier-league/hull-city": [
+      "catalog/premier-league/hull-city/PRE-HUL-002.png",
       "catalog/premier-league/hull-city/PRE-HUL-001.png"
     ],
     "premier-league/ipswich-town": [
@@ -5416,6 +5430,8 @@
       "catalog/premier-league/ipswich-town/PRE-IPS-002.png"
     ],
     "premier-league/leeds-united": [
+      "catalog/premier-league/leeds-united/PRE-LEE-049.png",
+      "catalog/premier-league/leeds-united/PRE-LEE-048.png",
       "catalog/premier-league/leeds-united/PRE-LEE-001.png",
       "catalog/premier-league/leeds-united/PRE-LEE-002.png",
       "catalog/premier-league/leeds-united/PRE-LEE-003.jpg",
@@ -5465,6 +5481,7 @@
       "catalog/premier-league/leeds-united/PRE-LEE-047.png"
     ],
     "premier-league/liverpool": [
+      "catalog/premier-league/liverpool/PRE-LIV-110.png",
       "catalog/premier-league/liverpool/PRE-LIV-001.png",
       "catalog/premier-league/liverpool/PRE-LIV-002.png",
       "catalog/premier-league/liverpool/PRE-LIV-003.png",
@@ -5805,6 +5822,8 @@
       "catalog/premier-league/manchester-united/PRE-MUN-141.jpg"
     ],
     "premier-league/newcastle-united": [
+      "catalog/premier-league/newcastle-united/PRE-NEW-039.png",
+      "catalog/premier-league/newcastle-united/PRE-NEW-038.png",
       "catalog/premier-league/newcastle-united/PRE-NEW-001.png",
       "catalog/premier-league/newcastle-united/PRE-NEW-002.jpg",
       "catalog/premier-league/newcastle-united/PRE-NEW-003.jpg",
@@ -5844,6 +5863,7 @@
       "catalog/premier-league/newcastle-united/PRE-NEW-037.jpg"
     ],
     "premier-league/nottingham-forest": [
+      "catalog/premier-league/nottingham-forest/PRE-NOT-017.png",
       "catalog/premier-league/nottingham-forest/PRE-NOT-001.png",
       "catalog/premier-league/nottingham-forest/PRE-NOT-002.jpg",
       "catalog/premier-league/nottingham-forest/PRE-NOT-003.jpg",
@@ -5862,7 +5882,9 @@
       "catalog/premier-league/nottingham-forest/PRE-NOT-016.png"
     ],
     "premier-league/sunderland": [
-      "catalog/premier-league/sunderland/image.png",
+      "catalog/premier-league/sunderland/PRE-SUN-021.png",
+      "catalog/premier-league/sunderland/PRE-SUN-020.png",
+      "catalog/premier-league/sunderland/PRE-SUN-019.png",
       "catalog/premier-league/sunderland/PRE-SUN-001.png",
       "catalog/premier-league/sunderland/PRE-SUN-002.jpg",
       "catalog/premier-league/sunderland/PRE-SUN-003.jpg",
@@ -5883,6 +5905,8 @@
       "catalog/premier-league/sunderland/PRE-SUN-018.jpg"
     ],
     "premier-league/tottenham-hotspur": [
+      "catalog/premier-league/tottenham-hotspur/PRE-TOT-109.png",
+      "catalog/premier-league/tottenham-hotspur/PRE-TOT-108.png",
       "catalog/premier-league/tottenham-hotspur/PRE-TOT-001.png",
       "catalog/premier-league/tottenham-hotspur/PRE-TOT-002.png",
       "catalog/premier-league/tottenham-hotspur/PRE-TOT-003.jpg",
