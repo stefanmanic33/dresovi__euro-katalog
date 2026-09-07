@@ -255,7 +255,10 @@
     }
     if (parts[0] === "team" && parts[1] && parts[2]) {
       const cat = window.CATALOG[parts[1]];
-      const team = cat?.teams?.find((t) => slugify(t) === parts[2]);
+      const team = cat?.teams?.find(
+        (t) =>
+          slugify(t) === parts[2] || resolveTeamSlug(parts[1], t) === parts[2],
+      );
       crumbs.push({
         label: cat ? cat.label : parts[1],
         href: qs(`category/${parts[1]}`),
@@ -274,16 +277,25 @@
       .join("<span>/</span>");
   }
 
+  function resolveTeamSlug(categoryKey, teamName) {
+    const slug = slugify(teamName || "");
+    const key = `${categoryKey}/${slug}`;
+    const overrides = {
+      "bundesliga/bayern-munchen": "bayern-munich",
+    };
+    return overrides[key] || slug;
+  }
+
   function getTeamFolder(categoryKey, teamName) {
-    return `catalog/${categoryKey}/${slugify(teamName)}`;
+    return `catalog/${categoryKey}/${resolveTeamSlug(categoryKey, teamName)}`;
   }
 
   function teamManifestKey(categoryKey, teamName) {
-    return `${categoryKey}/${slugify(teamName)}`;
+    return `${categoryKey}/${resolveTeamSlug(categoryKey, teamName)}`;
   }
 
   function teamLogoPath(categoryKey, teamName) {
-    const normalized = slugify(teamName);
+    const normalized = resolveTeamSlug(categoryKey, teamName);
     const aliases = {
       "brighton-hove-albion": "brighton-and-hove-albion",
       "tottenham-hotspur": "tottenham-hotspur",
@@ -298,12 +310,18 @@
     };
     const resolved = aliases[normalized] || normalized;
     const cacheVersion =
-      categoryKey === "la-liga" &&
-      (resolved === "atletico-madrid" ||
-        resolved === "deportivo-alaves" ||
-        resolved === "malaga" ||
-        resolved === "deportivo-la-coruna" ||
-        resolved === "racing-santander")
+      (categoryKey === "la-liga" &&
+        [
+          "atletico-madrid",
+          "deportivo-alaves",
+          "malaga",
+          "deportivo-la-coruna",
+          "racing-santander",
+        ].includes(resolved)) ||
+      (categoryKey === "bundesliga" &&
+        ["elversberg", "bayern-munich", "paderborn", "schalke-04"].includes(
+          resolved,
+        ))
         ? "?v=20260907"
         : "";
     return `images/logos/teams/${categoryKey}/${resolved}.png${cacheVersion}`;
@@ -705,7 +723,11 @@
       app.innerHTML = '<div class="empty">Kategorija nije pronađena.</div>';
       return;
     }
-    const teamName = category.teams.find((team) => slugify(team) === teamSlug);
+    const teamName = category.teams.find(
+      (team) =>
+        slugify(team) === teamSlug ||
+        resolveTeamSlug(categoryKey, team) === teamSlug,
+    );
     if (!teamName) {
       app.innerHTML = '<div class="empty">Tim nije pronađen.</div>';
       return;
