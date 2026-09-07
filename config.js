@@ -273,6 +273,12 @@ window.CATALOG = {
       "Villarreal",
     ],
   },
+  "deciji-dresovi": {
+    section: "dresovi",
+    label: "Dečiji dresovi",
+    logo: "images/logos/deciji-dresovi.png",
+    teams: [],
+  },
   "other-european-clubs": {
     section: "dresovi",
     label: "Ostali evropski timovi",
