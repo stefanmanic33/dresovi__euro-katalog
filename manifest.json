@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-07T21:03:35.993363Z",
+  "generatedAt": "2026-09-07T22:35:33.870584Z",
   "items": {
     "bundesliga/augsburg": [
       "catalog/bundesliga/augsburg/BUN-AUG-001.png"
@@ -18,6 +18,7 @@
       "catalog/bundesliga/bayer-leverkusen/BUN-BAL-011.jpg"
     ],
     "bundesliga/bayern-munich": [
+      "catalog/bundesliga/bayern-munich/BUN-BAY-099.png",
       "catalog/bundesliga/bayern-munich/BUN-BAY-001.jpg",
       "catalog/bundesliga/bayern-munich/BUN-BAY-002.jpg",
       "catalog/bundesliga/bayern-munich/BUN-BAY-003.jpg",
@@ -1026,6 +1027,7 @@
       "catalog/la-liga/real-betis/LAL-RBT-091.jpg"
     ],
     "la-liga/real-madrid": [
+      "catalog/la-liga/real-madrid/LAL-RMA-123.png",
       "catalog/la-liga/real-madrid/LAL-RMA-122.png",
       "catalog/la-liga/real-madrid/LAL-RMA-121.png",
       "catalog/la-liga/real-madrid/LAL-RMA-001.webp",
