@@ -291,11 +291,13 @@
       "hull-city": "hull-city",
       "ipswich-town": "ipswich-town",
       "athletic-club": "athletic-bilbao",
+      "alaves": "deportivo-alaves",
     };
     const resolved = aliases[normalized] || normalized;
     const cacheVersion =
-      categoryKey === "la-liga" && resolved === "atletico-madrid"
-        ? "?v=20260906"
+      categoryKey === "la-liga" &&
+      (resolved === "atletico-madrid" || resolved === "deportivo-alaves")
+        ? "?v=20260907"
         : "";
     return `images/logos/teams/${categoryKey}/${resolved}.png${cacheVersion}`;
   }
