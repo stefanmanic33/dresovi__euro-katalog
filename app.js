@@ -292,11 +292,18 @@
       "ipswich-town": "ipswich-town",
       "athletic-club": "athletic-bilbao",
       "alaves": "deportivo-alaves",
+      "malaga-c-f": "malaga",
+      "real-racing-club-santander": "racing-santander",
+      "racing-club-santander": "racing-santander",
     };
     const resolved = aliases[normalized] || normalized;
     const cacheVersion =
       categoryKey === "la-liga" &&
-      (resolved === "atletico-madrid" || resolved === "deportivo-alaves")
+      (resolved === "atletico-madrid" ||
+        resolved === "deportivo-alaves" ||
+        resolved === "malaga" ||
+        resolved === "deportivo-la-coruna" ||
+        resolved === "racing-santander")
         ? "?v=20260907"
         : "";
     return `images/logos/teams/${categoryKey}/${resolved}.png${cacheVersion}`;
