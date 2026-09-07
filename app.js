@@ -290,6 +290,7 @@
       "coventry-city": "coventry-city",
       "hull-city": "hull-city",
       "ipswich-town": "ipswich-town",
+      "athletic-club": "athletic-bilbao",
     };
     const resolved = aliases[normalized] || normalized;
     const cacheVersion =
