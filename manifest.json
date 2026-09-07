@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-06T12:07:21.322999Z",
+  "generatedAt": "2026-09-07T20:30:27.749886Z",
   "items": {
     "bundesliga/augsburg": [
       "catalog/bundesliga/augsburg/BUN-AUG-001.png"
@@ -613,6 +613,9 @@
     "euroleague/virtus-bologna": [],
     "euroleague/zalgiris": [],
     "la-liga/athletic-club": [
+      "catalog/la-liga/athletic-club/LAL-ATH-024.png",
+      "catalog/la-liga/athletic-club/LAL-ATH-023.png",
+      "catalog/la-liga/athletic-club/LAL-ATH-022.png",
       "catalog/la-liga/athletic-club/LAL-ATH-001.webp",
       "catalog/la-liga/athletic-club/LAL-ATH-002.webp",
       "catalog/la-liga/athletic-club/LAL-ATH-003.webp",
@@ -636,6 +639,9 @@
       "catalog/la-liga/athletic-club/LAL-ATH-021.webp"
     ],
     "la-liga/atletico-madrid": [
+      "catalog/la-liga/atletico-madrid/LAL-ATL-054.png",
+      "catalog/la-liga/atletico-madrid/LAL-ATL-053.png",
+      "catalog/la-liga/atletico-madrid/LAL-ATL-052.png",
       "catalog/la-liga/atletico-madrid/LAL-ATL-001.jpg",
       "catalog/la-liga/atletico-madrid/LAL-ATL-002.jpg",
       "catalog/la-liga/atletico-madrid/LAL-ATL-003.jpg",
@@ -689,6 +695,9 @@
       "catalog/la-liga/atletico-madrid/LAL-ATL-051.jpg"
     ],
     "la-liga/barcelona": [
+      "catalog/la-liga/barcelona/LAL-BAR-173.png",
+      "catalog/la-liga/barcelona/LAL-BAR-172.png",
+      "catalog/la-liga/barcelona/LAL-BAR-171.png",
       "catalog/la-liga/barcelona/LAL-BAR-001.jpg",
       "catalog/la-liga/barcelona/LAL-BAR-002.jpg",
       "catalog/la-liga/barcelona/LAL-BAR-003.jpg",
@@ -861,37 +870,69 @@
       "catalog/la-liga/barcelona/LAL-BAR-170.jpg"
     ],
     "la-liga/celta-vigo": [
+      "catalog/la-liga/celta-vigo/LAL-CEL-005.png",
+      "catalog/la-liga/celta-vigo/LAL-CEL-004.png",
+      "catalog/la-liga/celta-vigo/LAL-CEL-003.png",
       "catalog/la-liga/celta-vigo/LAL-CEL-001.png",
       "catalog/la-liga/celta-vigo/LAL-CEL-002.png"
     ],
     "la-liga/deportivo-alaves": [
+      "catalog/la-liga/deportivo-alaves/LAL-ALA-004.png",
+      "catalog/la-liga/deportivo-alaves/LAL-ALA-003.png",
+      "catalog/la-liga/deportivo-alaves/LAL-ALA-002.png",
       "catalog/la-liga/deportivo-alaves/LAL-ALA-001.png"
     ],
-    "la-liga/deportivo-la-coruna": [],
+    "la-liga/deportivo-la-coruna": [
+      "catalog/la-liga/deportivo-la-coruna/LAL-DEP-003.png",
+      "catalog/la-liga/deportivo-la-coruna/LAL-DEP-002.png",
+      "catalog/la-liga/deportivo-la-coruna/LAL-DEP-001.png"
+    ],
     "la-liga/elche": [
+      "catalog/la-liga/elche/LAL-ELC-003.png",
+      "catalog/la-liga/elche/LAL-ELC-002.png",
       "catalog/la-liga/elche/LAL-ELC-001.png"
     ],
     "la-liga/espanyol": [
+      "catalog/la-liga/espanyol/LAL-ESP-004.png",
+      "catalog/la-liga/espanyol/LAL-ESP-003.png",
       "catalog/la-liga/espanyol/LAL-ESP-001.png",
       "catalog/la-liga/espanyol/LAL-ESP-002.png"
     ],
-    "la-liga/getafe": [],
+    "la-liga/getafe": [
+      "catalog/la-liga/getafe/LAL-GET-002.png",
+      "catalog/la-liga/getafe/LAL-GET-001.png"
+    ],
     "la-liga/levante": [
+      "catalog/la-liga/levante/LAL-LEV-005.png",
+      "catalog/la-liga/levante/LAL-LEV-004.png",
       "catalog/la-liga/levante/LAL-LEV-001.jpg",
       "catalog/la-liga/levante/LAL-LEV-002.jpg",
       "catalog/la-liga/levante/LAL-LEV-003.png"
     ],
-    "la-liga/malaga": [],
+    "la-liga/malaga": [
+      "catalog/la-liga/malaga/LAL-MAL-003.png",
+      "catalog/la-liga/malaga/LAL-MAL-002.png",
+      "catalog/la-liga/malaga/LAL-MAL-001.png"
+    ],
     "la-liga/osasuna": [
+      "catalog/la-liga/osasuna/LAL-OSA-003.png",
+      "catalog/la-liga/osasuna/LAL-OSA-002.png",
       "catalog/la-liga/osasuna/LAL-OSA-001.png"
     ],
-    "la-liga/racing-santander": [],
+    "la-liga/racing-santander": [
+      "catalog/la-liga/racing-santander/LAL-RAC-002.png",
+      "catalog/la-liga/racing-santander/LAL-RAC-001.png"
+    ],
     "la-liga/rayo-vallecano": [
+      "catalog/la-liga/rayo-vallecano/LAL-RAY-004.png",
       "catalog/la-liga/rayo-vallecano/LAL-RAY-001.png",
       "catalog/la-liga/rayo-vallecano/LAL-RAY-002.png",
       "catalog/la-liga/rayo-vallecano/LAL-RAY-003.png"
     ],
     "la-liga/real-betis": [
+      "catalog/la-liga/real-betis/LAL-RBT-094.png",
+      "catalog/la-liga/real-betis/LAL-RBT-093.png",
+      "catalog/la-liga/real-betis/LAL-RBT-092.png",
       "catalog/la-liga/real-betis/LAL-RBT-001.jpg",
       "catalog/la-liga/real-betis/LAL-RBT-002.jpg",
       "catalog/la-liga/real-betis/LAL-RBT-003.jpg",
@@ -985,6 +1026,8 @@
       "catalog/la-liga/real-betis/LAL-RBT-091.jpg"
     ],
     "la-liga/real-madrid": [
+      "catalog/la-liga/real-madrid/LAL-RMA-122.png",
+      "catalog/la-liga/real-madrid/LAL-RMA-121.png",
       "catalog/la-liga/real-madrid/LAL-RMA-001.webp",
       "catalog/la-liga/real-madrid/LAL-RMA-002.webp",
       "catalog/la-liga/real-madrid/LAL-RMA-003.webp",
@@ -1107,6 +1150,8 @@
       "catalog/la-liga/real-madrid/LAL-RMA-120.webp"
     ],
     "la-liga/real-sociedad": [
+      "catalog/la-liga/real-sociedad/LAL-RSO-014.png",
+      "catalog/la-liga/real-sociedad/LAL-RSO-013.png",
       "catalog/la-liga/real-sociedad/LAL-RSO-001.jpg",
       "catalog/la-liga/real-sociedad/LAL-RSO-002.jpg",
       "catalog/la-liga/real-sociedad/LAL-RSO-003.jpg",
@@ -1121,6 +1166,9 @@
       "catalog/la-liga/real-sociedad/LAL-RSO-012.jpg"
     ],
     "la-liga/sevilla": [
+      "catalog/la-liga/sevilla/LAL-SEV-035.png",
+      "catalog/la-liga/sevilla/LAL-SEV-034.png",
+      "catalog/la-liga/sevilla/LAL-SEV-033.png",
       "catalog/la-liga/sevilla/LAL-SEV-001.jpg",
       "catalog/la-liga/sevilla/LAL-SEV-002.jpg",
       "catalog/la-liga/sevilla/LAL-SEV-003.jpg",
@@ -1155,6 +1203,9 @@
       "catalog/la-liga/sevilla/LAL-SEV-032.jpg"
     ],
     "la-liga/valencia": [
+      "catalog/la-liga/valencia/LAL-VAL-036.png",
+      "catalog/la-liga/valencia/LAL-VAL-035.png",
+      "catalog/la-liga/valencia/LAL-VAL-034.png",
       "catalog/la-liga/valencia/LAL-VAL-001.jpg",
       "catalog/la-liga/valencia/LAL-VAL-002.jpg",
       "catalog/la-liga/valencia/LAL-VAL-003.jpg",
@@ -1190,6 +1241,9 @@
       "catalog/la-liga/valencia/LAL-VAL-033.webp"
     ],
     "la-liga/villarreal": [
+      "catalog/la-liga/villarreal/LAL-VIL-006.png",
+      "catalog/la-liga/villarreal/LAL-VIL-005.png",
+      "catalog/la-liga/villarreal/LAL-VIL-004.png",
       "catalog/la-liga/villarreal/LAL-VIL-001.png",
       "catalog/la-liga/villarreal/LAL-VIL-002.webp",
       "catalog/la-liga/villarreal/LAL-VIL-003.webp"
