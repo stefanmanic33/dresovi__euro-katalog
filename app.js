@@ -321,8 +321,12 @@
       (categoryKey === "bundesliga" &&
         ["elversberg", "bayern-munich", "paderborn", "schalke-04"].includes(
           resolved,
+        )) ||
+      (categoryKey === "serie-a" &&
+        ["frosinone", "milan", "ac-milan", "monza", "venezia"].includes(
+          resolved,
         ))
-        ? "?v=20260907"
+        ? "?v=20260908"
         : "";
     return `images/logos/teams/${categoryKey}/${resolved}.png${cacheVersion}`;
   }
