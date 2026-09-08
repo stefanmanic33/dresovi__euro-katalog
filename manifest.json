@@ -1,10 +1,14 @@
 {
-  "generatedAt": "2026-09-07T22:54:58.271701Z",
+  "generatedAt": "2026-09-08T12:26:21.912162Z",
   "items": {
     "bundesliga/augsburg": [
+      "catalog/bundesliga/augsburg/BUN-AUG-003.png",
+      "catalog/bundesliga/augsburg/BUN-AUG-002.png",
       "catalog/bundesliga/augsburg/BUN-AUG-001.png"
     ],
     "bundesliga/bayer-leverkusen": [
+      "catalog/bundesliga/bayer-leverkusen/BUN-BAL-013.png",
+      "catalog/bundesliga/bayer-leverkusen/BUN-BAL-012.png",
       "catalog/bundesliga/bayer-leverkusen/BUN-BAL-001.jpg",
       "catalog/bundesliga/bayer-leverkusen/BUN-BAL-002.jpg",
       "catalog/bundesliga/bayer-leverkusen/BUN-BAL-003.jpg",
@@ -18,6 +22,8 @@
       "catalog/bundesliga/bayer-leverkusen/BUN-BAL-011.jpg"
     ],
     "bundesliga/bayern-munich": [
+      "catalog/bundesliga/bayern-munich/BUN-BAY-101.png",
+      "catalog/bundesliga/bayern-munich/BUN-BAY-100.png",
       "catalog/bundesliga/bayern-munich/BUN-BAY-099.png",
       "catalog/bundesliga/bayern-munich/BUN-BAY-001.jpg",
       "catalog/bundesliga/bayern-munich/BUN-BAY-002.jpg",
@@ -119,6 +125,9 @@
       "catalog/bundesliga/bayern-munich/BUN-BAY-098.jpg"
     ],
     "bundesliga/borussia-dortmund": [
+      "catalog/bundesliga/borussia-dortmund/BUN-BVB-042.png",
+      "catalog/bundesliga/borussia-dortmund/BUN-BVB-041.png",
+      "catalog/bundesliga/borussia-dortmund/BUN-BVB-040.png",
       "catalog/bundesliga/borussia-dortmund/BUN-BVB-001.jpg",
       "catalog/bundesliga/borussia-dortmund/BUN-BVB-002.jpg",
       "catalog/bundesliga/borussia-dortmund/BUN-BVB-003.jpg",
@@ -160,9 +169,15 @@
       "catalog/bundesliga/borussia-dortmund/BUN-BVB-039.jpg"
     ],
     "bundesliga/borussia-monchengladbach": [
+      "catalog/bundesliga/borussia-monchengladbach/BUN-BMG-004.png",
+      "catalog/bundesliga/borussia-monchengladbach/BUN-BMG-003.png",
+      "catalog/bundesliga/borussia-monchengladbach/BUN-BMG-002.png",
       "catalog/bundesliga/borussia-monchengladbach/BUN-BMG-001.png"
     ],
     "bundesliga/eintracht-frankfurt": [
+      "catalog/bundesliga/eintracht-frankfurt/BUN-FRA-003.png",
+      "catalog/bundesliga/eintracht-frankfurt/BUN-FRA-002.png",
+      "catalog/bundesliga/eintracht-frankfurt/BUN-FRA-001.png",
       "catalog/bundesliga/eintracht-frankfurt/BUN-EIN-001.jpg",
       "catalog/bundesliga/eintracht-frankfurt/BUN-EIN-002.jpg",
       "catalog/bundesliga/eintracht-frankfurt/BUN-EIN-003.png",
@@ -179,11 +194,18 @@
       "catalog/bundesliga/eintracht-frankfurt/BUN-EIN-014.jpg",
       "catalog/bundesliga/eintracht-frankfurt/BUN-EIN-015.jpg"
     ],
-    "bundesliga/elversberg": [],
+    "bundesliga/elversberg": [
+      "catalog/bundesliga/elversberg/BUN-ELV-001.png"
+    ],
     "bundesliga/freiburg": [
+      "catalog/bundesliga/freiburg/BUN-FRE-003.png",
+      "catalog/bundesliga/freiburg/BUN-FRE-002.png",
       "catalog/bundesliga/freiburg/BUN-FRE-001.png"
     ],
     "bundesliga/hamburger-sv": [
+      "catalog/bundesliga/hamburger-sv/BUN-HSV-037.png",
+      "catalog/bundesliga/hamburger-sv/BUN-HSV-036.png",
+      "catalog/bundesliga/hamburger-sv/BUN-HSV-035.png",
       "catalog/bundesliga/hamburger-sv/BUN-HSV-001.jpg",
       "catalog/bundesliga/hamburger-sv/BUN-HSV-002.jpg",
       "catalog/bundesliga/hamburger-sv/BUN-HSV-003.jpg",
@@ -220,10 +242,15 @@
       "catalog/bundesliga/hamburger-sv/BUN-HSV-034.jpg"
     ],
     "bundesliga/hoffenheim": [
+      "catalog/bundesliga/hoffenheim/BUN-HOF-004.png",
+      "catalog/bundesliga/hoffenheim/BUN-HOF-003.png",
       "catalog/bundesliga/hoffenheim/BUN-HOF-001.png",
       "catalog/bundesliga/hoffenheim/BUN-HOF-002.png"
     ],
     "bundesliga/koln": [
+      "catalog/bundesliga/koln/BUN-KOL-003.png",
+      "catalog/bundesliga/koln/BUN-KOL-002.png",
+      "catalog/bundesliga/koln/BUN-KOL-001.png",
       "catalog/bundesliga/koln/BUN-1FC-001.jpg",
       "catalog/bundesliga/koln/BUN-1FC-002.jpg",
       "catalog/bundesliga/koln/BUN-1FC-003.jpg",
@@ -244,11 +271,19 @@
     ],
     "bundesliga/paderborn": [],
     "bundesliga/rb-leipzig": [
+      "catalog/bundesliga/rb-leipzig/BUN-RBL-005.png",
+      "catalog/bundesliga/rb-leipzig/BUN-RBL-004.png",
+      "catalog/bundesliga/rb-leipzig/BUN-RBL-003.png",
       "catalog/bundesliga/rb-leipzig/BUN-RBL-001.png",
       "catalog/bundesliga/rb-leipzig/BUN-RBL-002.png"
     ],
-    "bundesliga/schalke-04": [],
+    "bundesliga/schalke-04": [
+      "catalog/bundesliga/schalke-04/BUN-S04-003.png",
+      "catalog/bundesliga/schalke-04/BUN-S04-002.png",
+      "catalog/bundesliga/schalke-04/BUN-S04-001.png"
+    ],
     "bundesliga/st-pauli": [
+      "catalog/bundesliga/st-pauli/BUN-STP-015.png",
       "catalog/bundesliga/st-pauli/BUN-STP-001.jpg",
       "catalog/bundesliga/st-pauli/BUN-STP-002.jpg",
       "catalog/bundesliga/st-pauli/BUN-STP-003.jpg",
@@ -265,15 +300,24 @@
       "catalog/bundesliga/st-pauli/BUN-STP-014.jpg"
     ],
     "bundesliga/stuttgart": [
+      "catalog/bundesliga/stuttgart/BUN-STU-006.png",
+      "catalog/bundesliga/stuttgart/BUN-STU-005.png",
+      "catalog/bundesliga/stuttgart/BUN-STU-004.png",
       "catalog/bundesliga/stuttgart/BUN-STU-001.jpg",
       "catalog/bundesliga/stuttgart/BUN-STU-002.jpg",
       "catalog/bundesliga/stuttgart/BUN-STU-003.jpg"
     ],
     "bundesliga/union-berlin": [
+      "catalog/bundesliga/union-berlin/BUN-UNI-004.png",
+      "catalog/bundesliga/union-berlin/BUN-UNI-003.png",
       "catalog/bundesliga/union-berlin/BUN-UNI-001.jpg",
       "catalog/bundesliga/union-berlin/BUN-UNI-002.png"
     ],
     "bundesliga/werder-bremen": [
+      "catalog/bundesliga/werder-bremen/BUN-BRE-004.png",
+      "catalog/bundesliga/werder-bremen/BUN-BRE-003.png",
+      "catalog/bundesliga/werder-bremen/BUN-BRE-002.png",
+      "catalog/bundesliga/werder-bremen/BUN-BRE-001.png",
       "catalog/bundesliga/werder-bremen/BUN-WER-001.png"
     ],
     "deciji-dresovi": [
@@ -4632,7 +4676,6 @@
       "catalog/nba/washington-wizards/NBA-WAS-051.jpg"
     ],
     "other-european-clubs": [
-      "catalog/other-european-clubs/imgi_38_small.jpg",
       "catalog/other-european-clubs/imgi_37_small.jpg",
       "catalog/other-european-clubs/imgi_36_small copy.jpg",
       "catalog/other-european-clubs/imgi_35_small copy.jpg",
@@ -4751,7 +4794,6 @@
       "catalog/other-european-clubs/imgi_41_small.jpg",
       "catalog/other-european-clubs/imgi_40_small.jpg",
       "catalog/other-european-clubs/imgi_39_small.jpg",
-      "catalog/other-european-clubs/imgi_38_small.png",
       "catalog/other-european-clubs/imgi_37_small.png",
       "catalog/other-european-clubs/imgi_36_small.jpg",
       "catalog/other-european-clubs/imgi_35_small.jpg",
@@ -8403,8 +8445,8 @@
       "catalog/world-cup-2026-deciji-kompleti/cb17a1aa.jpg"
     ],
     "world-cup-2026-staro": [
-      "catalog/world-cup-2026-staro/image copy.png",
-      "catalog/world-cup-2026-staro/image.png",
+      "catalog/world-cup-2026-staro/WOR-CUP-002.png",
+      "catalog/world-cup-2026-staro/WOR-CUP-001.png",
       "catalog/world-cup-2026-staro/imgi_131_small copy 2.jpg",
       "catalog/world-cup-2026-staro/imgi_130_small copy 2.jpg",
       "catalog/world-cup-2026-staro/imgi_129_small copy 2.jpg",
